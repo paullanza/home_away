@@ -4,4 +4,27 @@ class EventsController < ApplicationController
     @events = policy_scope(Event)
     authorize @events
   end
+
+  def new
+    @event = Event.new
+    authorize @event
+  end
+
+  def create
+    @event = Event.new(events_params)
+    authorize @event
+    @event.user = current_user
+
+    if @event.save
+      redirect_to events_path
+    else
+      render new
+    end
+  end
+
+  private
+
+  def events_params
+    params.require(:event).permit(:title, :description, :category_id, :date, :location)
+  end
 end
