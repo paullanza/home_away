@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_05_24_173654) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.date "data"
+    t.date "date"
     t.string "location"
     t.text "description"
     t.bigint "category_id", null: false
