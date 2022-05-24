@@ -6,18 +6,25 @@ class EventsController < ApplicationController
   end
 
   def new
+    # create a new Event so we can fill the form
     @event = Event.new
+    #  authorize pundit
     authorize @event, policy_class: EventPolicy
   end
 
   def create
+    # create a new Event so we can fill the form
     @event = Event.new(events_params)
+    #  authorize pundit
     authorize @event, policy_class: EventPolicy
+    # added current user to events
     @event.user = current_user
 
     if @event.save
+      # redirect to all events if save
       redirect_to events_path
     else
+      # if not render the page again
       render :new
     end
   end
@@ -25,6 +32,7 @@ class EventsController < ApplicationController
   private
 
   def events_params
+    # strong params for saves
     params.require(:event).permit(:title, :description, :category_id, :date, :location)
   end
 end
