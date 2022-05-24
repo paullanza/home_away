@@ -35,4 +35,10 @@ class EventsController < ApplicationController
     # strong params for saves
     params.require(:event).permit(:title, :description, :category_id, :date, :location)
   end
+
+  def show
+    # show the specific event, if user is logged in.
+    @event = Event.find(params[:id])
+    authorize @event
+  end
 end

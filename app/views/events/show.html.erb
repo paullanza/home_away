@@ -1,0 +1,11 @@
+<h2>Event Details</h2>
+
+<h4><%= @event.title %></h4>
+<p><%= @event.date %></p>
+<p><%= @event.location %></p>
+<p><%= @event.description %></p>
+
+<%= link_to 'Back to events', events_path, class: "btn btn-primary"%>
+
+<%= link_to 'Join', root_path, class: "btn btn-primary" %>
+<%# needs to set the path for both buttons %>
