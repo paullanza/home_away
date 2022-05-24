@@ -4,6 +4,6 @@ class AddColumnsToUser < ActiveRecord::Migration[6.1]
     add_column :users, :residence, :string
     add_column :users, :first_name, :string
     add_column :users, :last_name, :string
-    add_reference :users, :expertise, foreign_key: true
+    add_column :users, :biography, :text
   end
 end
