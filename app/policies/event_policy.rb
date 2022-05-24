@@ -7,6 +7,15 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
+  def create?
+    new?
+  end
+
+  # scope for the index method
   class Scope < Scope
     def resolve
       scope.all
