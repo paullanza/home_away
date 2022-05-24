@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    # show the specific event, if user is logged in.
     @event = Event.find(params[:id])
     authorize @event
   end
