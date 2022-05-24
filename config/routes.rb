@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :events, only: [:index, :new, :create]
+  get '/events/my_events', to: 'events#my_events', as: :my_events
   resources :profiles, only: [ :show, :edit, :update ]
 end

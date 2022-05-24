@@ -11,6 +11,7 @@ class EventPolicy < ApplicationPolicy
     new?
   end
 
+
   # scope for the index method
   class Scope < Scope
     def resolve
