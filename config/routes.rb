@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :profiles, only: [ :show, :edit, :update ]
   resources :events, only: [:index]
-
 end
