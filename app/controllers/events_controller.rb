@@ -2,23 +2,23 @@ class EventsController < ApplicationController
   def index
     # get the policy for all Event. like Event.all
     @events = policy_scope(Event)
-    authorize @events
+    authorize @events, policy_class: EventPolicy
   end
 
   def new
     @event = Event.new
-    authorize @event
+    authorize @event, policy_class: EventPolicy
   end
 
   def create
     @event = Event.new(events_params)
-    authorize @event
+    authorize @event, policy_class: EventPolicy
     @event.user = current_user
 
     if @event.save
       redirect_to events_path
     else
-      render new
+      render :new
     end
   end
 
