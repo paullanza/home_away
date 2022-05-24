@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :profiles, only: [ :show, :edit, :update ]
-  resources :events, only: [:index]
 
+  resources :events, only: [:index, :new, :create]
+  resources :profiles, only: [ :show, :edit, :update ]
 end

@@ -11,7 +11,7 @@ user = User.create({
   residence: 'Canada',
   first_name: 'Jimmy',
   last_name: 'Johnny',
-  biography: 'Oh man, all the things I could write here!',
+  biography: 'Oh man, all the things I could write here!'
 })
 
 exp = Expertise.create(name: "Magician")

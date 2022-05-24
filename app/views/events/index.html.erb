@@ -1,5 +1,7 @@
 <h1>All events</h1>
 
-<% @events.each do |event| %>
-  <%= event.title %> -- <%= event.date %>
-<% end %>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.title %> -- <%= event.date %></li>
+  <% end %>
+</ul>
