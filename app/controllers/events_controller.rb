@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   end
 
   def my_events
+    # get a scope for all mthe Events i created just like Event.all but with pundit authorization
     @my_events = policy_scope(Event).where(user: current_user)
   end
 
