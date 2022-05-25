@@ -12,7 +12,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item">
+          <!--Paul: added link to dashboard-->
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
           <!--Paul: added link to events page-->
             <%= link_to "Events", events_path, class: "nav-link" %>
           </li>
@@ -24,9 +28,13 @@
           <!--Paul: added link to current user's profile-->
             <%= link_to "Profile", profile_path(current_user), class: "nav-link" %>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
           <!--Paul: added link to events page-->
             <%= link_to "Event 1", '/events/1', class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+          <!--Paul: added link to my events page-->
+            <%= link_to "My events", my_events_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
