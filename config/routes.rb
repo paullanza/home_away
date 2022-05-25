@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/events/my_events', to: 'events#my_events', as: :my_events
   resources :events, only: [:index, :new, :create, :show]
   resources :profiles, only: [ :show, :edit, :update ]
+
+  resources :chatrooms, only: :show
 end
