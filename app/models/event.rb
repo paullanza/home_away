@@ -5,4 +5,7 @@ class Event < ApplicationRecord
   validates :title, uniqueness: true
   validates :title, :date, :location, :description, :category, :user, presence: true
   validates :description, length: { minimum: 25 }
+
+  # Cloudinary
+  has_one_attached :photo
 end
