@@ -7,10 +7,10 @@
 </ul>
 
 
-<!--% TO INSERT IMAGE VIA CLOUDINARY iF IS A FORM  (PARTIAL): %>
-<% simple_form_for(article) do |f| %>
-  <% f.input :photo, as: :file %>
-<% end %>
+<!--% TO INSERT IMAGE VIA CLOUDINARY iF IS A FORM  (PARTIAL):
+ simple_form_for(article) do |f|
+   f.input :photo, as: :file
 
-<% TO INSERT IMAGE VIA CLOUDINARY iF IS A FORM: %>
-<%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+
+ TO INSERT IMAGE VIA CLOUDINARY iF IS A FORM:
+cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill
