@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [ :show, :edit, :update ]
+  resources :chatrooms, only: [:show, :create] do
+    resources :messages, only: :create
+  end
 
   get '/dashboard', to: 'dashboards#dashboard', as: :dashboard
+
 end
