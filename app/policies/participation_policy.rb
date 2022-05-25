@@ -6,7 +6,8 @@ class ParticipationPolicy < ApplicationPolicy
     # end
   end
 
-  def new?
+  # changed new to *create*, since we will not create a view to join the event.
+  def create?
     true
   end
 end
