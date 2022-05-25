@@ -6,6 +6,6 @@ class DashboardsController < ApplicationController
     @profiles -= [current_user]
 
     # find all events in my country of residence
-    @events = Event.where(location: current_user.residence)
+    @events = Event.joins(:user).where("location = ? and origin = ? ", current_user.residence, current_user.origin)
   end
 end
