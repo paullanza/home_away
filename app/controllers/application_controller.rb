@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   # Pundit: white-list approach.
-  after_action :verify_authorized, except: [:index, :my_events], unless: :skip_pundit?
+  after_action :verify_authorized, except: [:index, :my_events, :dashboard], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :my_events], unless: :skip_pundit?
 
   private
