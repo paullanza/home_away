@@ -1,5 +1,15 @@
-<h1>My Events</h1>
+<h2>My Events</h2>
 
-<% @my_events.each do |event| %>
-  <%= event.title %>
-<% end %>
+<ul>
+  <% @my_events.each do |event| %>
+    <li><%= event.title %></li>
+  <% end %>
+</ul>
+
+<h2>My participations</h2>
+
+<ul>
+  <% @my_participations.each do |participation| %>
+    <li><%= participation.event.title %></li>
+  <% end %>
+</ul>
