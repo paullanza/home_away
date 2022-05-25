@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/events/my_events', to: 'events#my_events', as: :my_events
   resources :profiles, only: [ :show, :edit, :update ]
+
+  get '/dashboard', to: 'dashboards#dashboard', as: :dashboard
 end

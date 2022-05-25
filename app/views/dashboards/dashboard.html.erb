@@ -1,0 +1,18 @@
+<h1>My dashboard</h1>
+
+<h2>Profiles:</h2>
+<ul>
+  <%# iterate through all the profiles %>
+  <% @profiles.each do |profile| %>
+    <li><%= profile.first_name %></li>
+  <% end %>
+</ul>
+
+<h2>Events:</h2>
+
+<ul>
+  <%# iterate through all the events %>
+  <% @events.each do |event| %>
+    <li><%= event.title %></li>
+  <% end %>
+</ul>
