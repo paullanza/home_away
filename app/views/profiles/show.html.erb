@@ -1,1 +1,9 @@
 <h2>Show Page for profiles </h2>
+<% if @chatroom %>
+  <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
+<% else %>
+  <%= simple_form_for @chatroom_new do |f| %>
+    <%= f.hidden_field :user2_id, value: params[:id] %>
+    <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
+  <% end %>
+<% end %>

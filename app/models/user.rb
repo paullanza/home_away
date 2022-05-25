@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :events
   has_many :participations
   validates :origin, :residence, :first_name, :last_name, presence: true
+  has_many :chatrooms_as_user1, class_name: "Chatroom", foreign_key: :user1_id
+  has_many :chatrooms_as_user2, class_name: "Chatroom", foreign_key: :user2_id
 end

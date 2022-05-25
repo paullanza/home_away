@@ -1,6 +1,10 @@
 class ChatroomPolicy < ApplicationPolicy
-  def show?
+  def create?
     true
+  end
+
+  def show?
+    record.user1 == user || record.user2 == user
   end
 
   class Scope < Scope
