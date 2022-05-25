@@ -27,19 +27,13 @@ class EventsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     # show the specific event, if user is logged in.
     @event = Event.find(params[:id])
     authorize @event
     # do we need line 36?
     @participation = Participation.new
-  end
-
-  def show
-    # show the specific event, if user is logged in.
-    @event = Event.find(params[:id])
-    authorize @event
   end
 
   def my_events
