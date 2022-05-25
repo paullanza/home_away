@@ -46,8 +46,8 @@ class EventsController < ApplicationController
   private
 
   def events_params
-    # strong params for saves
-    params.require(:event).permit(:title, :description, :category_id, :date, :location)
+    # strong params for saves, **ADDED :photo (Cloudinary)
+    params.require(:event).permit(:title, :description, :category_id, :date, :location, :photo)
   end
 
 end
