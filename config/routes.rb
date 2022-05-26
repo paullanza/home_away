@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/events/my_events', to: 'events#my_events', as: :my_events
-  resources :events, only: [:index, :new, :create, :show] do
+  resources :events, only: [:index, :new, :create, :show, :edit, :update] do
     # create a participation need the event to be created.
     resources :participations, only: [ :create ]
   end
