@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :participations, only: [ :create ]
   end
 
-  resources :profiles, only: [ :show, :edit, :update ]
+  resources :profiles, only: [ :show ]
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end
