@@ -15,6 +15,9 @@ class EventPolicy < ApplicationPolicy
     new?
   end
 
+  def destroy?
+    true
+  end
 
   # scope for the index method
   class Scope < Scope

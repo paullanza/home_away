@@ -43,6 +43,16 @@ class EventsController < ApplicationController
     @my_participations = Participation.where(user: current_user)
   end
 
+  # Jose added the destroy method bellow
+  def destroy
+    @event = Event.find(params[:id])
+    authorize @event, policy_class: EventPolicy
+    # destroy only if the user is the one wo created the event
+    @event.destroy if @event.user == current_user
+
+    redirect_to events_path
+  end
+
   private
 
   def events_params
