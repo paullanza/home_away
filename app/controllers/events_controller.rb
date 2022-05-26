@@ -2,6 +2,13 @@ class EventsController < ApplicationController
   def index
     # get the policy for all Event. like Event.all
     @events = policy_scope(Event)
+    # this `geocoded` scope filters only events with coordinates (latitude & longitude)
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+    end
   end
 
   def new

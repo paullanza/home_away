@@ -6,6 +6,11 @@
   <% end %>
 </ul>
 
+<!-- This is our mapbox !-->
+<div style="width: 400px; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <!--% TO INSERT IMAGE VIA CLOUDINARY iF IS A FORM  (PARTIAL):
  simple_form_for(article) do |f|
@@ -13,4 +18,4 @@
 
 
  TO INSERT IMAGE VIA CLOUDINARY iF IS A FORM:
-cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill
+cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill !-->
