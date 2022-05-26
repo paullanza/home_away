@@ -43,6 +43,22 @@ class EventsController < ApplicationController
     @my_participations = Participation.where(user: current_user)
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    authorize @event
+
+    if @event.update(events_params)
+      redirect_to event_path(@event)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def events_params

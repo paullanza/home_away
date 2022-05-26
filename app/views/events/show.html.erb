@@ -8,6 +8,10 @@
 <%= link_to 'Back to events', events_path, class: "btn btn-primary"%>
 
 <%= link_to 'Join', event_participations_path(@event), method: 'post', class: "btn btn-primary" %>
+
+<% if @event.user == current_user %>
+  <%= link_to "edit", edit_event_path(@event), class: "btn btn-primary" %>
+<% end %>
 <%# needs to set the path for both buttons,
 \ Join button need to be disabled if user joined the event.
 \ Also need a pop-up to let know the user he joined the event.  %>
