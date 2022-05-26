@@ -2,6 +2,16 @@ class EventsController < ApplicationController
   def index
     # get the policy for all Event. like Event.all
     @events = policy_scope(Event)
+    # this `geocoded` scope filters only events with coordinates (latitude & longitude)
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        # info window for each marker
+        info_window: render_to_string(partial: "info_window", locals: { event: event })
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
   end
 
   def new
