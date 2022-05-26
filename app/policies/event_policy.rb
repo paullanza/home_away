@@ -19,6 +19,10 @@ class EventPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def update?
+    record.user == user
+  end
+
   # scope for the index method
   class Scope < Scope
     def resolve

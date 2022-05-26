@@ -11,11 +11,4 @@ class ProfilesController < ApplicationController
     # create a new chatroom in case we dont have a chatroom and we need to create one
     @chatroom_new = Chatroom.new
   end
-
-  def edit
-    # authorize @user
-  end
-
-  def update
-  end
 end

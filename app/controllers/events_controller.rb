@@ -52,6 +52,25 @@ class EventsController < ApplicationController
 
     redirect_to events_path
   end
+  
+  def edit
+    # finding the correct @event time and authorize it
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
+  def update
+    # finding the correct @event time and authorize it
+    @event = Event.find(params[:id])
+    authorize @event
+
+    # if correctly updated, go to the event page, otherwise render the page
+    if @event.update(events_params)
+      redirect_to event_path(@event)
+    else
+      render :edit
+    end
+  end
 
   private
 
