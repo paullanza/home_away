@@ -4,7 +4,7 @@
 <ul>
   <%# iterate through all the profiles %>
   <% @profiles.each do |profile| %>
-    <li><%= profile.first_name %></li>
+    <li><%= link_to profile.first_name, profile_path(profile) %></li>
   <% end %>
 </ul>
 
@@ -13,6 +13,6 @@
 <ul>
   <%# iterate through all the events %>
   <% @events.each do |event| %>
-    <li><%= event.title %></li>
+    <li><%= link_to event.title, event_path(event) %></li>
   <% end %>
 </ul>

@@ -15,6 +15,13 @@ class EventPolicy < ApplicationPolicy
     new?
   end
 
+  def destroy?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
 
   # scope for the index method
   class Scope < Scope

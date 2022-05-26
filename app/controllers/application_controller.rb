@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [:index, :my_events, :dashboard], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :my_events], unless: :skip_pundit?
 
+  # redirect if you dont have access to the action
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   private
 
   def skip_pundit?
@@ -20,5 +23,11 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :origin, :residence, :biography])
+  end
+
+  def user_not_authorized
+    # redirect if you dont have access to the action
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(request.referrer || dashboard_path)
   end
 end
