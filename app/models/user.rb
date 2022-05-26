@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # validations
   has_many :users_expertises
-  has_many :expertises, through: :users_expertises
+  has_many :expertises, through: :users_expertises, dependent: :destroy
   has_many :messages
   has_many :chatrooms, through: :messages
   has_many :events
