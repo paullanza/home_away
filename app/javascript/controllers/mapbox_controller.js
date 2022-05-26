@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log(this.apiKeyValue)
+    // console.log(this.apiKeyValue)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -23,8 +23,20 @@ export default class extends Controller {
   // Markers
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+
+      // Uncomment l. 29 - 34 if image on the popup
+      // const customMarker = document.createElement("div")
+      // customMarker.className = "marker"
+      // customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      // customMarker.style.backgroundSize = "contain"
+      // customMarker.style.width = "25px"
+      // customMarker.style.height = "25px"
+
+      // add customMarker as an argument in the next line to show the image in the popup
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     });
   }
