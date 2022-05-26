@@ -4,7 +4,7 @@
 <ul>
   <%# iterate through all the profiles %>
   <% @profiles.each do |profile| %>
-    <li><%= profile.first_name %></li>
+    <li><%= link_to profile.first_name, profile_path(profile) %></li>
   <% end %>
 </ul>
 
