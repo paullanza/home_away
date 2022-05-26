@@ -48,7 +48,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event, policy_class: EventPolicy
     # destroy only if the user is the one wo created the event
-    @event.destroy if @event.user == current_user
+    @event.destroy
 
     redirect_to events_path
   end

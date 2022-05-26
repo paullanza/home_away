@@ -16,7 +16,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    record.user == user
   end
 
   # scope for the index method
