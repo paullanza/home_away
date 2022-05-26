@@ -35,6 +35,7 @@ class EventsController < ApplicationController
     # do we need line 36?
     @participation = Participation.new
 
+    # findour participation if we have one
     @my_participation = Participation.find_by("user_id = ? and event_id = ? ", current_user, @event)
   end
 
