@@ -13,6 +13,6 @@
 <ul>
   <%# iterate through all the events %>
   <% @events.each do |event| %>
-    <li><%= event.title %></li>
+    <li><%= link_to event.title, event_path(event) %></li>
   <% end %>
 </ul>
