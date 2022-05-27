@@ -10,23 +10,25 @@
       <ul>
         <li>Finance</li>
         <li>Outdoor activities</li>
-        <li>Night life</li>
+        <li>Board games</li>
       </ul>
-      <% if @user == current_user %>
-        <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary ml-2' %>
-      <% else %>
-        <%# if there is a chatroom %>
-        <% if @chatroom %>
-          <%# link to the chatroom page %>
-          <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
+      <div class=button-expertise>
+        <% if @user == current_user %>
+          <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary ml-2' %>
         <% else %>
-          <%# create a new chatroom and go there %>
-          <%= simple_form_for @chatroom_new do |f| %>
-            <%= f.hidden_field :user2_id, value: params[:id] %>
-            <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
+        <%# if there is a chatroom %>
+          <% if @chatroom %>
+            <%# link to the chatroom page %>
+            <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
+          <% else %>
+            <%# create a new chatroom and go there %>
+            <%= simple_form_for @chatroom_new do |f| %>
+              <%= f.hidden_field :user2_id, value: params[:id] %>
+              <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
   <div class="card-about-me">
