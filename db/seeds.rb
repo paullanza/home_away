@@ -182,7 +182,7 @@ user14 = User.create({
                       password: 123456,
                       origin: 'Brazil',
                       residence: 'Montreal',
-                      first_name: 'Stincky',
+                      first_name: 'Stinky',
                       last_name: 'Pete',
                       biography: 'I am from Brazilia. I work for the Brazil ambassy in Montreal.'
                     })
