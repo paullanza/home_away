@@ -1,5 +1,10 @@
 <h1>All events</h1>
 
+<div class="topnav">
+  <a href="#contact">Contact</a>
+  <input type="text" placeholder="Search..">
+</div>
+
 <ul>
   <% @events.each do |event| %>
     <li><%= event.title %> -- <%= event.date %></li>
