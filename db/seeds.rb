@@ -21,6 +21,7 @@ web = Expertise.create(name: "Web Development")
 cars = Expertise.create(name: "Cars")
 fitness = Expertise.create(name: "Fitness")
 mag = Expertise.create(name: "Magician")
+boardgame = Expertise.create(name: "Board Games")
 
 puts "creating users"
 carlos = User.create({
@@ -39,7 +40,7 @@ user = User.create({
                      password: 123456,
                      origin: 'Brazil',
                      residence: 'Montreal',
-                     first_name: 'Maria',
+                     first_name: 'Jose',
                      last_name: 'Fontes',
                      biography: 'Oh man, all the things I could write here! To keep it short my name is Maria.
                                  I\'ve been living in Montreal for 4 years now. I work at Rbc
@@ -51,9 +52,9 @@ user2 = User.create({
                       password: 123456,
                       origin: 'Brazil',
                       residence: 'Montreal',
-                      first_name: 'Jose',
+                      first_name: 'Maria',
                       last_name: 'Ribeiro',
-                      biography: 'My name is Jose Ribeiro. I am from Sao Paulo.
+                      biography: 'My name is Maria Ribeiro. I am from Sao Paulo.
                                   I used to own one of the best restaurant in Brazil,
                                   and now I am a chef at a very hihgh-end restaurant.'
                     })
@@ -206,18 +207,16 @@ user16 = User.create({
                                   You will never find my inside on a sunny day, except if I am at the office.'
                     })
 
-UsersExpertise.create(user: user, expertise: night_life)
-UsersExpertise.create(user: user, expertise: banking)
-UsersExpertise.create(user: user, expertise: cultural_act)
-UsersExpertise.create(user: user, expertise: out_sport)
-UsersExpertise.create(user: carlos, expertise: fitness)
-UsersExpertise.create(user: carlos, expertise: plumbing)
+UsersExpertise.create(user: user, expertise: out_sports)
+UsersExpertise.create(user: user, expertise: finance)
+UsersExpertise.create(user: user, expertise: fitness)
 UsersExpertise.create(user: user3, expertise: finance)
 UsersExpertise.create(user: user2, expertise: rest)
 UsersExpertise.create(user: user4, expertise: cars)
 UsersExpertise.create(user: user4, expertise: mag)
 UsersExpertise.create(user: user5, expertise: web)
-UsersExpertise.create(user: user6, expertise: clothing)
+UsersExpertise.create(user: user6, expertise: night_life)
+UsersExpertise.create(user: user6, expertise: finance)
 UsersExpertise.create(user: user7, expertise: rest)
 UsersExpertise.create(user: user7, expertise: night_life)
 UsersExpertise.create(user: user8, expertise: fitness)
@@ -305,7 +304,7 @@ bar_crawl = Event.create({
                          })
 foot_game = Event.create({
                            title: "Football Game",
-                           date: Date.new(2022, 06, 24),
+                           date: Date.new(2022, 06, 04),
                            location: "Montreal",
                            description: "Looking for enought people to play 7 a side game of football",
                            category: sports,
@@ -424,6 +423,11 @@ Participation.create(user: user15, event: foot_game)
 Participation.create(user: user5, event: board)
 Participation.create(user: user15, event: board)
 Participation.create(user: user12, event: foot_game)
+Participation.create(user: user13, event: foot_game)
+Participation.create(user: user11, event: foot_game)
+Participation.create(user: user10, event: foot_game)
+Participation.create(user: user09, event: foot_game)
+Participation.create(user: user08, event: foot_game)
 Participation.create(user: user10, event: quebec)
 Participation.create(user: user11, event: quebec)
 Participation.create(user: user11, event: tennis)
