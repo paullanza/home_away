@@ -2,6 +2,16 @@ class EventsController < ApplicationController
   def index
     # get the policy for all Event. like Event.all
     @events = policy_scope(Event)
+    # this `geocoded` scope filters only events with coordinates (latitude & longitude)
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        # info window for each marker
+        info_window: render_to_string(partial: "info_window", locals: { event: event })
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
   end
 
   def new
@@ -34,6 +44,9 @@ class EventsController < ApplicationController
     authorize @event
     # do we need line 36?
     @participation = Participation.new
+
+    # findour participation if we have one
+    @my_participation = Participation.find_by("user_id = ? and event_id = ? ", current_user, @event)
   end
 
   def my_events
@@ -52,7 +65,7 @@ class EventsController < ApplicationController
 
     redirect_to events_path
   end
-  
+
   def edit
     # finding the correct @event time and authorize it
     @event = Event.find(params[:id])
