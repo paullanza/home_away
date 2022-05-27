@@ -7,6 +7,6 @@ class ChatroomChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
     console.log("Unsubscribed from the chatroom")
-    this.channel.unsubscribe
+    this.channel.unsubscribe()
   end
 end

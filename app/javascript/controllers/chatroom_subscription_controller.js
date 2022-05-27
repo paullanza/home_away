@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
+    // on load of the page connect to the chatroom id and when we type we insert message and scroll
     this.channel = consumer.subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
@@ -15,11 +16,13 @@ export default class extends Controller {
 
 
   #insertMessageAndScrollDown(data) {
+    // we insert our message at the end and then scroll to end
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   resetForm(event) {
+    // we reset the form
     event.target.reset()
   }
 }
