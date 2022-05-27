@@ -182,8 +182,8 @@ user14 = User.create({
                       password: 123456,
                       origin: 'Brazil',
                       residence: 'Montreal',
-                      first_name: 'Hector',
-                      last_name: 'Matos',
+                      first_name: 'Stinky',
+                      last_name: 'Pete',
                       biography: 'I am from Brazilia. I work for the Brazil ambassy in Montreal.'
                     })
 user15 = User.create({
@@ -232,7 +232,7 @@ UsersExpertise.create(user: user12, expertise: out_sport)
 UsersExpertise.create(user: user12, expertise: rest)
 UsersExpertise.create(user: user13, expertise: clothing)
 UsersExpertise.create(user: user14, expertise: mag)
-UsersExpertise.create(user: user14, expertise: cultural_act)
+UsersExpertise.create(user: user14, expertise: finance)
 UsersExpertise.create(user: user15, expertise: web)
 UsersExpertise.create(user: user16, expertise: finance)
 UsersExpertise.create(user: user16, expertise: out_sport)
