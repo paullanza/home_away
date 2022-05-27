@@ -1,0 +1,97 @@
+.card {
+  border-radius: 8px;
+  justify-content: space-between;
+}
+.card p {
+  font-size: 12px;
+}
+
+.card-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+
+.card-info {
+  text-align: end;
+  margin-right: 12px;
+}
+
+.card a {
+  color: #393E5B;
+}
+
+.card-but {
+  display: flex;
+  justify-content: end;
+}
+
+.card-but a {
+  background-color: #393E5B;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 90px;
+}
+
+.card-event {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.card-event img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-event a {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #393E5B;
+}
+
+.card-event p {
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-event .card-event-infos {
+  padding: 16px;
+}
+
+.profile-img {
+  border: 1px solid rgba(0,0,0,0.2);
+  height: 140px;
+  width: 140px;
+  border-radius: 8px;
+  position: relative;
+  left: 80px;
+  top: -40px;
+  background-image: url("https://ca.slack-edge.com/T02NE0241-U039ZBN5J11-gc43c9b2b007-512");
+  background-size: contain;
+}
+
+.event-loc {
+  font-size: 8px;
+  text-align: end;
+}
+
+.event-date {
+  border: 1px solid rgba(0,0,0,0.2);
+  background-color: white;
+  width: 60px;
+  position: relative;
+  right: 130px;
+  color: #393E5B;
+  top: -4px;
+}
