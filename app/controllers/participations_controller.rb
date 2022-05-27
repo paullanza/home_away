@@ -16,4 +16,13 @@ class ParticipationsController < ApplicationController
     # go back to the event showpage
     redirect_to event_path(@event)
   end
+
+  def destroy
+    @participation = Participation.find(params[:id])
+    authorize @participation, policy_class: ParticipationPolicy
+
+    @participation.destroy
+
+    redirect_to my_events_path
+  end
 end

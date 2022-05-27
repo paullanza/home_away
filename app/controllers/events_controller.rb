@@ -44,6 +44,9 @@ class EventsController < ApplicationController
     authorize @event
     # do we need line 36?
     @participation = Participation.new
+
+    # findour participation if we have one
+    @my_participation = Participation.find_by("user_id = ? and event_id = ? ", current_user, @event)
   end
 
   def my_events
@@ -62,7 +65,7 @@ class EventsController < ApplicationController
 
     redirect_to events_path
   end
-  
+
   def edit
     # finding the correct @event time and authorize it
     @event = Event.find(params[:id])

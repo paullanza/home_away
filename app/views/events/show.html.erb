@@ -25,3 +25,11 @@ It only appers if the user is the one who created the event%>
   class: 'ms-3 btn btn-danger',
   style: "min-width: 100px;" %>
 <% end %>
+
+<% if @my_participation %>
+  <%= link_to "Bail on Event", participation_path(@my_participation),
+  data: { confirm: "Are you sure you want to delete this event?" },
+  method: "delete",
+  class: 'ms-3 btn btn-danger',
+  style: "min-width: 100px;" %>
+<% end %>

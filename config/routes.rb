@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :participations, only: [ :create ]
   end
 
+  resources :participations, only: [ :destroy ]
+
   resources :profiles, only: [ :show ]
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
