@@ -1,21 +1,42 @@
-<h2>Show Page for profiles </h2>
-<h3><%= @user.first_name %></h3>
-<h3><%= @user.last_name %></h3>
-<h3><%= @user.origin %></h3>
-<h3><%= @user.residence %></h3>
-<p><%= @user.biography %></p>
-<%# if there is a chatroom %>
-<% if @chatroom %>
-  <%# link to the chatroom page %>
-  <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
-<% else %>
-  <%# create a new chatroom and go there %>
-  <%= simple_form_for @chatroom_new do |f| %>
-    <%= f.hidden_field :user2_id, value: params[:id] %>
-    <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
-  <% end %>
-<% end %>
+<div class="container-profile-page">
+  <h2><%= @user.first_name %> <%= @user.last_name %> </h2>
+  <p><%= @user.origin %></p>
+  <div class="wrapper-profile-content">
+    <div class="card-picture">
+      <img src="<%= asset_path('profile_picture.png') %>" alt="profile picture">
+    </div>
+    <div class="card-expertise">
+      <h3>Areas of expertise</h3>
+      <ul>
+        <li>Finance</li>
+        <li>Outdoor activities</li>
+        <li>Night life</li>
+      </ul>
+      <% if @user == current_user %>
+        <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary ml-2' %>
+      <% else %>
+        <%# if there is a chatroom %>
+        <% if @chatroom %>
+          <%# link to the chatroom page %>
+          <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
+        <% else %>
+          <%# create a new chatroom and go there %>
+          <%= simple_form_for @chatroom_new do |f| %>
+            <%= f.hidden_field :user2_id, value: params[:id] %>
+            <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-about-me">
+    <h3>About me</h3>
+    <p><%= @user.biography %></p>
+  </div>
+</div>
 
-<% if @user == current_user %>
-  <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary ml-2' %>
-<% end %>
+
+
+
+
+<%# <h3><%= @user.residence </h3> %>
