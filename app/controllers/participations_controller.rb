@@ -18,9 +18,11 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
+    # find the participation and authorize it
     @participation = Participation.find(params[:id])
     authorize @participation, policy_class: ParticipationPolicy
 
+    # destroy participation
     @participation.destroy
 
     redirect_to my_events_path
