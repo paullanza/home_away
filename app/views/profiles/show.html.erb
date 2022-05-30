@@ -3,18 +3,30 @@
   <p><%= @user.origin %></p>
   <div class="wrapper-profile-content">
     <div class="card-picture">
-      <img src="<%= asset_path('profile_picture.png') %>" alt="profile picture">
+      <%# the lines commented bellow, to show the picture of the user,
+      can only be implemented nce cloudinary is good %>
+
+      <%# if @user.photo.attached? %>
+        <%#= cl_image_tag @user.photo.key, crop: :fill %>
+      <%# else %>
+        <img src="<%= asset_path('profile_picture.png') %>" alt="profile picture">
+      <%# end %>
     </div>
     <div class="card-expertise">
       <h3>Areas of expertise</h3>
       <ul>
-        <li>Finance</li>
-        <li>Outdoor activities</li>
-        <li>Board games</li>
+        <% @expertises.each do |expertise| %>
+          <li><%= expertise.expertise.name %></li>
+        <% end %>
       </ul>
       <div class=button-expertise>
+        <%# this buttons bellow can only apper if the user is the one who created the profile %>
         <% if @user == current_user %>
-          <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary' %>
+          <%# bellow is the syntax for a link with an image (icon) instead of a button %>
+          <a href="<%= edit_user_registration_path %>"><img alt="edit pencil icon" src="<%= asset_path('pencil_gray_icon.png') %>"
+         width=30" height="30"></a>
+          <a href="/"><img alt="trash can icon" src="<%= asset_path('trash_can_icon.png') %>"
+         width=40" height="40"></a>
         <% else %>
         <%# if there is a chatroom %>
           <% if @chatroom %>

@@ -10,5 +10,8 @@ class ProfilesController < ApplicationController
     @chatroom = Chatroom.find_by("(user1_id = ? and user2_id = ?) or (user1_id = ? and user2_id =?)", user1, @user2, @user2, user1)
     # create a new chatroom in case we dont have a chatroom and we need to create one
     @chatroom_new = Chatroom.new
+    @expertises = UsersExpertise.where(user: @user)
   end
+
+
 end
