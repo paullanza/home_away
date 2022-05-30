@@ -1,15 +1,35 @@
-<h2>My Events</h2>
 
-<ul>
-  <% @my_events.each do |event| %>
-    <li><%= event.title %></li>
-  <% end %>
-</ul>
+<div class="container d-flex justify-content-between">
+  <div class="row">
+    <div class="col-4" style="width: 400px; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @events_markers.to_json %>"
+      data-mapbox-participations-markers-value="<%= @participations_markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+  <div class="col-8">
+    <div>
 
-<h2>My participations</h2>
+      <h2>Attending</h2>
 
-<ul>
-  <% @my_participations.each do |participation| %>
-    <li><%= participation.event.title %></li>
-  <% end %>
-</ul>
+      <ul>
+        <% @participations.each do |participation| %>
+          <li><%= link_to participation.title, event_path(participation) %></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <h2>Hosting</h2>
+
+      <ul>
+        <% @my_events.each do |event| %>
+          <li><%= link_to event.title, event_path(event) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

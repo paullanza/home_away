@@ -42,25 +42,44 @@ class EventsController < ApplicationController
     # show the specific event, if user is logged in.
     @event = Event.find(params[:id])
     authorize @event
-    # do we need line 36?
     @participation = Participation.new
 
-    # findour participation if we have one
+    # find our participation if we have one
     @my_participation = Participation.find_by("user_id = ? and event_id = ? ", current_user, @event)
   end
 
   def my_events
-    # get a scope for all mthe Events i created just like Event.all but with pundit authorization
-    @my_events = policy_scope(Event).where(user: current_user)
-    # All the event I participate in
-    @my_participations = Participation.where(user: current_user)
+    # get a scope for all the Events I created just like Event.all but with pundit authorization
+    @my_events = policy_scope(Event)
+    # Paul: @participations is an array to get just the events from participations
+    @participations = current_user.participation_events
+    # raise
+    # this `geocoded` scope filters only events with coordinates (latitude & longitude)
+    @events_markers = @my_events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        # info window for each marker
+        info_window: render_to_string(partial: "info_window", locals: { event: event }),
+        # image_url: helpers.asset_url(image)
+      }
+    end
+    @participations_markers = @participations.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        # info window for each marker
+        info_window: render_to_string(partial: "info_window", locals: { event: event }),
+        # image_url: helpers.asset_url(image)
+      }
+    end
   end
 
   # Jose added the destroy method bellow
   def destroy
     @event = Event.find(params[:id])
     authorize @event, policy_class: EventPolicy
-    # destroy only if the user is the one wo created the event
+    # destroy only if the user is the one who created the event
     @event.destroy
 
     redirect_to events_path
@@ -76,7 +95,6 @@ class EventsController < ApplicationController
     # finding the correct @event time and authorize it
     @event = Event.find(params[:id])
     authorize @event
-
     # if correctly updated, go to the event page, otherwise render the page
     if @event.update(events_params)
       redirect_to event_path(@event)
@@ -91,5 +109,4 @@ class EventsController < ApplicationController
     # strong params for saves, **ADDED :photo (Cloudinary)
     params.require(:event).permit(:title, :description, :category_id, :date, :location, :photo)
   end
-
 end

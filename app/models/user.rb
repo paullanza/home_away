@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :messages
   has_many :events
   has_many :participations
+  has_many :participation_events, through: :participations, source: :event
   validates :origin, :residence, :first_name, :last_name, presence: true
   # has many chatroom that tyou can access typing user.chatroom_as_user1 or 2
   has_many :chatrooms_as_user1, class_name: "Chatroom", foreign_key: :user1_id
