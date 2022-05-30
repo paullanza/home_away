@@ -8,6 +8,17 @@
   font-family: "Open Sans", sans-serif;
 }
 
+// for the event details / event new / event edit
+.main-container {
+  display: flex;
+}
+
+.map-event {
+  min-height: 400px;
+  top: 0;
+  margin: 12px;
+  border-radius: 5px;
+
 .sticky-map {
   position: -webkit-sticky;
   position: sticky;
