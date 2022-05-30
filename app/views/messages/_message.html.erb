@@ -1,7 +1,12 @@
 <div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.first_name %> <%= message.user.last_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+  <div class="msg-bubble">
+    <div class="msg-info">
+      <div class="msg-info-name"><%= message.user.first_name %> <%= message.user.last_name %></div>
+      <div class="msg-info-time"><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></div>
+    </div>
+
+    <div class="msg-text left-msg">
+      <p><%= message.content %></p>
+    </div>
+  </div>
 </div>
