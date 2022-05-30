@@ -34,8 +34,15 @@
   width: 90px;
 }
 
+.card-but button {
+  background-color: #393E5B;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 90px;
+}
+
 .card-event {
-  overflow: hidden;
   height: 160px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -65,6 +72,11 @@
   margin-top: 8px;
 }
 
+.card-event img {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
 .card-event .card-event-infos {
   padding: 16px;
 }
@@ -91,8 +103,17 @@
   background-color: white;
   width: 60px;
   position: relative;
-  right: 130px;
+  left: -160px;
   color: #393E5B;
   top: -4px;
-  border-radius: 8px  ;
+  border-radius: 8px;
+}
+
+.cards-event {
+  height: 353px;
+  overflow: scroll;
+}
+
+.fixed {
+  position: fixed;
 }
