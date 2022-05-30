@@ -1,7 +1,7 @@
 .chatroom {
   background: white;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 0px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,5 +26,21 @@
     .form-group {
       margin-bottom: 0;
     }
+  }
+
+  .btn-chatroom {
+    color: white;
+    padding: 8px 24px;
+    height: 38px;
+    margin-top: 8px;
+    margin-left: 10px;
+    border-radius: 4px;
+    background: #393E5B;
+    transition: background 0.3s ease;
+  }
+
+  .btn-chatroom:hover {
+    background: #1BCB7F;
+    color: white;
   }
 }
