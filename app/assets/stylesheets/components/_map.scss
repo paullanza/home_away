@@ -7,3 +7,19 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+// for the event details / event new / event edit
+.main-container {
+  display: flex;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  margin: 5px;
+  border-radius: 5px;
+}
+//
