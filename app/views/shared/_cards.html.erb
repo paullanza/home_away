@@ -1,0 +1,11 @@
+  <div class="card-event m-3">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-event-infos">
+              <div class ="event-date">
+                <p><%= event.date %></p>
+              </div>
+              <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+              <p><%= event.description %></p>
+              <p class="event-loc"><em><%= event.location %></em></p>
+            </div>
+          </div>

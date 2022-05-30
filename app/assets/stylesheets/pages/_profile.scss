@@ -1,0 +1,59 @@
+.container-profile-page {
+  margin: 20px 80px;
+  text-align: center;
+}
+
+.container-profile-page h3 h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper-profile-content {
+  display: flex;
+  width: 100%;
+}
+
+.card-picture {
+  background-color: white;
+  flex-grow: 1;
+  height: 300px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px #888888;
+  margin-right: 10px;
+  padding: 0 20px;
+}
+
+.card-picture img {
+  height: 300px;
+  position: relative;
+  top: -30px;
+  border-radius: 16px;
+}
+
+.card-expertise {
+  background-color: white;
+  flex-grow: 4;
+  height: 300px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px #888888;
+  margin-left: 10px;
+  text-align: start;
+  padding: 30px;
+  position: relative;
+}
+
+.card-about-me {
+  background-color: white;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px #888888;
+  margin-top: 20px;
+  text-align: start;
+  padding: 30px;
+}
+
+.button-expertise {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
