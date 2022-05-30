@@ -2,7 +2,11 @@
 
   <div class="row">
     <div class="col-6">
+
       <h2>Community</h2>
+      <%= form_tag dashboard_path, method: :get do %>
+      <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white", include_blank: "Filter by Expertises")%>
+      <% end %>
         <%# iterate through all the profiles %>
       <div class="cards">
         <div class="grid-template">
@@ -25,7 +29,15 @@
               </div>
 
               <div class="card-but">
-                <%= link_to "Message", profile_path(profile), class: "btn btn-primary mx-2 mb-3 rounded"%>
+                  <% chat = Chatroom.find_by("user1_id = ? or user2_id = ?", profile, profile) %>
+                  <% if chat %>
+                    <%= link_to "Message", chatroom_path(chat), class: "btn btn-primary mx-2 mb-3 rounded"%>
+                  <% else %>
+                    <%= simple_form_for @new_chatroom do |f| %>
+                      <%= f.hidden_field :user2_id, value: profile.id %>
+                      <%= f.button :submit, "Message", class: 'btn btn-primary mx-2 mb-3 rounded'  %>
+                    <% end %>
+                  <% end %>
               </div>
             </div>
           <% end %>
@@ -35,13 +47,17 @@
 
     <div class="col-6">
       <h2>Events</h2>
+      <%= form_tag dashboard_path, method: :get do %>
+        <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white", include_blank: "Filter by Categories")%>
+      <% end %>
+
 
         <%# iterate through all the events %>
         <% @events.each do |event| %>
           <div class="card-event m-3">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <div class="card-event-infos">
-              <div class ="event-date">
+              <div class ="event-date ">
                 <p><%= event.date %></p>
               </div>
               <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
