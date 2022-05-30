@@ -1,6 +1,8 @@
 <%# cloudinary for images %>
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-<h1><%= @event.title %></h1>
+  <h1><%= @event.title %></h1>
+  <h3><%= @event.category.name %></h3>
+  <%= link_to 'Attend', event_participations_path(@event), method: 'post', class: "btn btn-primary px-4 rounded-5" %>
 </div>
 
 <div class='container'>
@@ -11,8 +13,6 @@
   <div class="col-sm-6 pt-5 bg-white">
     <div>
       <%= link_to 'Back to events', events_path, class: "btn btn-primary"%>
-
-      <%= link_to 'Join', event_participations_path(@event), method: 'post', class: "btn btn-primary" %>
 
       <% if @event.user == current_user %>
         <%= link_to "edit", edit_event_path(@event), class: "btn btn-primary" %>
@@ -40,13 +40,14 @@
         style: "min-width: 100px;" %>
       <% end %>
      </div>
-
+    <h4>Location:</h4>
     <p><%= @event.location %></p>
+    <h4>Description:</h4>
     <p><%= @event.description %></p>
 
   </div>
 
-  <div class="col-sm-6 bg-white">
+  <div class="col-sm-6 bg-white min-height: 380px">
     <div class="map-event"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
