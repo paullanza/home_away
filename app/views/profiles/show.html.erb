@@ -1,21 +1,56 @@
-<h2>Show Page for profiles </h2>
-<h3><%= @user.first_name %></h3>
-<h3><%= @user.last_name %></h3>
-<h3><%= @user.origin %></h3>
-<h3><%= @user.residence %></h3>
-<p><%= @user.biography %></p>
-<%# if there is a chatroom %>
-<% if @chatroom %>
-  <%# link to the chatroom page %>
-  <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
-<% else %>
-  <%# create a new chatroom and go there %>
-  <%= simple_form_for @chatroom_new do |f| %>
-    <%= f.hidden_field :user2_id, value: params[:id] %>
-    <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
-  <% end %>
-<% end %>
+<div class="container-profile-page">
+  <h2><%= @user.first_name %> <%= @user.last_name %> </h2>
+  <p><%= @user.origin %></p>
+  <div class="wrapper-profile-content">
+    <div class="card-picture">
+      <%# the lines commented bellow, to show the picture of the user,
+      can only be implemented nce cloudinary is good %>
 
-<% if @user == current_user %>
-  <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary ml-2' %>
-<% end %>
+      <%# if @user.photo.attached? %>
+        <%#= cl_image_tag @user.photo.key, crop: :fill %>
+      <%# else %>
+        <img src="<%= asset_path('profile_picture.png') %>" alt="profile picture">
+      <%# end %>
+    </div>
+    <div class="card-expertise">
+      <h3>Areas of expertise</h3>
+      <ul>
+        <% @expertises.each do |expertise| %>
+          <li><%= expertise.expertise.name %></li>
+        <% end %>
+      </ul>
+      <div class=button-expertise>
+        <%# this buttons bellow can only apper if the user is the one who created the profile %>
+        <% if @user == current_user %>
+          <%# bellow is the syntax for a link with an image (icon) instead of a button %>
+          <a href="<%= edit_user_registration_path %>"><img alt="edit pencil icon" src="<%= asset_path('pencil_gray_icon.png') %>"
+         width=30" height="30"></a>
+          <a href="/"><img alt="trash can icon" src="<%= asset_path('trash_can_icon.png') %>"
+         width=40" height="40"></a>
+        <% else %>
+        <%# if there is a chatroom %>
+          <% if @chatroom %>
+            <%# link to the chatroom page %>
+            <%= link_to "Message", chatroom_path(@chatroom), class: 'btn btn-primary'%>
+          <% else %>
+            <%# create a new chatroom and go there %>
+            <%= simple_form_for @chatroom_new do |f| %>
+              <%= f.hidden_field :user2_id, value: params[:id] %>
+              <%= f.button :submit, "Message", class: 'btn btn-primary'  %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card-about-me">
+    <h3>About me</h3>
+    <p><%= @user.biography %></p>
+  </div>
+</div>
+
+
+
+
+
+<%# <h3><%= @user.residence </h3> %>
