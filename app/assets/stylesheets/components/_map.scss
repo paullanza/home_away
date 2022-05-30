@@ -13,13 +13,9 @@
   display: flex;
 }
 
-#map {
-  width: 100%;
-  height: 400px;
-  height: 100vh;
-  position: sticky;
+.map-event {
+  min-height: 400px;
   top: 0;
-  margin: 5px;
+  margin: 12px;
   border-radius: 5px;
 }
-//

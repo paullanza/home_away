@@ -1,6 +1,9 @@
-.details-event{
-  max-width: 540px;
-  padding-top: 20px;
-  top: 260;
-  border-radius: 2px;
+.event-popup-title {
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  background-color: white;
+  max-height: max-content;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, .25);
 }
