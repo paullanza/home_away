@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-between">
+<div class="container justify-content-between">
   <div class="row">
     <div class="col-4" style="width: 400px; height: 600px;"
       data-controller="mapbox"
@@ -6,30 +6,32 @@
       data-mapbox-participations-markers-value="<%= @participations_markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  </div>
-  <div class="col-8">
-    <div>
-      <h2>Attending</h2>
-    </div>
-    <div class="row">
-        <ul>
-          <% @participations.each do |participation| %>
-            <div class="col-6">
-              <li><%= link_to participation.title, event_path(participation) %></li>
-            </div>
-          <% end %>
-        </ul>
-    </div>
-    <div>
-      <div class="d-flex justify-content-between">
-        <h2>Hosting</h2>
-        <%= link_to "Create an Event", new_event_path, class:"btn btn-primary" %>
-      </div>
+    <div class="col-8">
       <div>
+        <h2>Attending</h2>
+      </div>
         <ul>
-          <% @my_events.each do |event| %>
-            <li><%= link_to event.title, event_path(event) %></li>
-          <% end %>
+          <div class="row">
+            <% @participations.each do |participation| %>
+              <div class="col-6">
+                <li><%= link_to participation.title, event_path(participation) %></li>
+              </div>
+            <% end %>
+          </div>
+        </ul>
+      <div>
+        <div class="d-flex justify-content-between">
+          <h2>Hosting</h2>
+          <%= link_to "Create an Event", new_event_path, class:"btn btn-primary" %>
+        </div>
+        <ul>
+          <div class="row">
+            <% @my_events.each do |event| %>
+              <div class="col-6">
+                <li><%= link_to event.title, event_path(event) %></li>
+              </div>
+            <% end %>
+          </div>
         </ul>
       </div>
     </div>
