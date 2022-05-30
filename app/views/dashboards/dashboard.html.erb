@@ -1,18 +1,55 @@
-<h1>My dashboard</h1>
+<div class="container">
 
-<h2>Profiles:</h2>
-<ul>
-  <%# iterate through all the profiles %>
-  <% @profiles.each do |profile| %>
-    <li><%= link_to profile.first_name, profile_path(profile) %></li>
-  <% end %>
-</ul>
+  <div class="row">
+    <div class="col-6">
+      <h2>Community</h2>
+        <%# iterate through all the profiles %>
+      <div class="cards">
+        <div class="grid-template">
+          <% @profiles.each do |profile| %>
+            <div class="card mt-5 m-2 shadow">
+              <div class="profile-img">
+              </div>
+              <div class="card-text-group">
+              <div class="card-info">
+                <p class=""><em><%= profile.residence %></em></p>
+                  <p>
+                    <% profile.expertises.each do |exp| %>
+                      <em><%= exp.name %></em>,
+                    <% end %>
+                  </p>
+              </div>
+              <h4 class="mx-2"><%= link_to profile.first_name, profile_path(profile), class: "text-decoration-none"  %>
+                <%= link_to profile.last_name, profile_path(profile), class: "text-decoration-none" %></h4>
+              <p class="mx-2"><%= profile.short_bio %></p>
+              </div>
 
-<h2>Events:</h2>
+              <div class="card-but">
+                <%= link_to "Message", profile_path(profile), class: "btn btn-primary mx-2 mb-3 rounded"%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<ul>
-  <%# iterate through all the events %>
-  <% @events.each do |event| %>
-    <li><%= link_to event.title, event_path(event) %></li>
-  <% end %>
-</ul>
+    <div class="col-6">
+      <h2>Events</h2>
+
+        <%# iterate through all the events %>
+        <% @events.each do |event| %>
+          <div class="card-event m-3">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-event-infos">
+              <div class ="event-date">
+                <p><%= event.date %></p>
+              </div>
+              <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+              <p><%= event.description %></p>
+              <p class="event-loc"><em><%= event.location %></em></p>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

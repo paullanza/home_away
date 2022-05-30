@@ -2,7 +2,8 @@
   <div class="container-fluid">
   <!--Paul: changed icon link to redirect to homepage-->
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <!--MY LOGO DOESNT WORK!-->
+      <%= image_tag "HAFHLOGO.png"  %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +34,7 @@
             <%= link_to "My events", my_events_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
+            <!--need to change this image!-->
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
