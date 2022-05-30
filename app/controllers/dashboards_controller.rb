@@ -16,10 +16,18 @@ class DashboardsController < ApplicationController
       @events = Event.joins(:user).where("location = ? and origin = ?", current_user.residence, current_user.origin)
     end
 
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        # info window for each marker
+        info_window: render_to_string(partial: "info_window", locals: { event: event })
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
 
     @my_chat = Chatroom.where('user1_id = ? or user2_id = ?', current_user, current_user)
 
     @new_chatroom = Chatroom.new
-
   end
 end

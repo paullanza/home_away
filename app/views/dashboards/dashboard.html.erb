@@ -4,6 +4,7 @@
     <div class="col-6">
 
       <h2>Community</h2>
+      <%# expertise tag search bar %>
       <%= form_tag dashboard_path, method: :get do %>
       <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white", include_blank: "Filter by Expertises")%>
       <% end %>
@@ -27,7 +28,7 @@
                 <%= link_to profile.last_name, profile_path(profile), class: "text-decoration-none" %></h4>
               <p class="mx-2"><%= profile.short_bio %></p>
               </div>
-
+              <%# message will either send you to the chatroom or create one %>
               <div class="card-but">
                   <% chat = Chatroom.find_by("user1_id = ? or user2_id = ?", profile, profile) %>
                   <% if chat %>
@@ -45,27 +46,37 @@
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-6" >
       <h2>Events</h2>
+      <%# categories tag search bar %>
       <%= form_tag dashboard_path, method: :get do %>
         <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white", include_blank: "Filter by Categories")%>
       <% end %>
 
 
+        <div style="width: 605px; height: 300px;", class="ms-3 sticky-map"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
         <%# iterate through all the events %>
-        <% @events.each do |event| %>
-          <div class="card-event m-3">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-event-infos">
-              <div class ="event-date ">
-                <p><%= event.date %></p>
+        <div class="cards">
+          <% @events.each do |event| %>
+            <div class="card-event m-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-event-infos">
+                <div class ="event-date ">
+                  <p><%= event.date %></p>
+                </div>
+                <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+                <p><%= event.description %></p>
+                <p class="event-loc"><em><%= event.location %></em></p>
               </div>
-              <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
-              <p><%= event.description %></p>
-              <p class="event-loc"><em><%= event.location %></em></p>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+
+
     </div>
   </div>
 </div>

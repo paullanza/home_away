@@ -7,3 +7,13 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+.sticky-map {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0vh;
+  padding: 50px;
+  z-index: 1;
+  border-radius: 8px;
+  position: fixed;
+}
