@@ -2,12 +2,13 @@
 
   <div class="row">
     <div class="col-6">
-
-      <h2>Community</h2>
-      <%# expertise tag search bar %>
-      <%= form_tag dashboard_path, method: :get do %>
-      <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white", include_blank: "Filter by Expertises")%>
-      <% end %>
+      <div class="d-flex">
+        <h2 class="me-3">Community</h2>
+        <%# expertise tag search bar %>
+        <%= form_tag dashboard_path, method: :get do %>
+        <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white rounded shadow", style: "width: 448px;", include_blank: "Filter by Expertises")%>
+        <% end %>
+      </div>
         <%# iterate through all the profiles %>
       <div class="cards">
         <div class="grid-template">
@@ -47,14 +48,16 @@
     </div>
 
     <div class="col-6" >
-      <h2>Events</h2>
-      <%# categories tag search bar %>
-      <%= form_tag dashboard_path, method: :get do %>
-        <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white", include_blank: "Filter by Categories")%>
-      <% end %>
+      <div class="d-flex">
+        <h2 class="ms-3">Events</h2>
+        <%# categories tag search bar %>
+        <%= form_tag dashboard_path, method: :get do %>
+          <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white ms-3 rounded shadow", style: "width: 492px;", include_blank: "Filter by Categories")%>
+        <% end %>
+      </div>
 
 
-        <div style="width: 605px; height: 300px;", class="ms-3 sticky-map"
+        <div style="width: 605px; height: 353px;", class="ms-3 sticky-map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
