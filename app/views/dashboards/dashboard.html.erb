@@ -2,7 +2,13 @@
 
   <div class="row">
     <div class="col-6">
-      <h2>Community</h2>
+      <div class="d-flex">
+        <h2 class="me-3">Community</h2>
+        <%# expertise tag search bar %>
+        <%= form_tag dashboard_path, method: :get do %>
+        <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white rounded shadow", style: "width: 448px;", include_blank: "Filter by Expertises")%>
+        <% end %>
+      </div>
         <%# iterate through all the profiles %>
       <div class="cards">
         <div class="grid-template">
@@ -23,9 +29,17 @@
                 <%= link_to profile.last_name, profile_path(profile), class: "text-decoration-none" %></h4>
               <p class="mx-2"><%= profile.short_bio %></p>
               </div>
-
+              <%# message will either send you to the chatroom or create one %>
               <div class="card-but">
-                <%= link_to "Message", profile_path(profile), class: "btn btn-primary mx-2 mb-3 rounded"%>
+                  <% chat = Chatroom.find_by("user1_id = ? or user2_id = ?", profile, profile) %>
+                  <% if chat %>
+                    <%= link_to "Message", chatroom_path(chat), class: "btn btn-primary mx-2 mb-3 rounded"%>
+                  <% else %>
+                    <%= simple_form_for @new_chatroom do |f| %>
+                      <%= f.hidden_field :user2_id, value: profile.id %>
+                      <%= f.button :submit, "Message", class: 'btn btn-primary mx-2 mb-3 rounded'  %>
+                    <% end %>
+                  <% end %>
               </div>
             </div>
           <% end %>
@@ -34,22 +48,36 @@
     </div>
 
     <div class="col-6">
-      <h2>Events</h2>
-
-        <%# iterate through all the events %>
-        <% @events.each do |event| %>
-          <div class="card-event m-3">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-event-infos">
-              <div class ="event-date">
-                <p><%= event.date %></p>
-              </div>
-              <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
-              <p><%= event.description %></p>
-              <p class="event-loc"><em><%= event.location %></em></p>
-            </div>
-          </div>
+      <div class="d-flex" style="position:sticky; top:56px;">
+        <h2 class="ms-3">Events</h2>
+        <%# categories tag search bar %>
+        <%= form_tag dashboard_path, method: :get do %>
+          <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white ms-3 rounded shadow", style: "width: 492px;", include_blank: "Filter by Categories")%>
         <% end %>
+      </div>
+
+
+        <div style="width: 605px; height: 353px;", class="ms-3 sticky-map"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <%# iterate through all the events %>
+        <div class="cards-event fixed">
+          <% @events.each do |event| %>
+            <div class="card-event m-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-event-infos">
+                <div class ="event-date ">
+                  <p><%= event.date %></p>
+                </div>
+                <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+                <p><%= event.description %></p>
+                <p class="event-loc"><em><%= event.location %></em></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
