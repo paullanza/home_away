@@ -50,10 +50,9 @@ class EventsController < ApplicationController
 
   def my_events
     # get a scope for all the Events I created just like Event.all but with pundit authorization
-    @my_events = policy_scope(Event)
+    @my_events = policy_scope(Event).where(user: current_user)
     # Paul: @participations is an array to get just the events from participations
     @participations = current_user.participation_events
-    # raise
     # this `geocoded` scope filters only events with coordinates (latitude & longitude)
     @events_markers = @my_events.geocoded.map do |event|
       {

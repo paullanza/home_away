@@ -1,3 +1,59 @@
 ul {
   list-style-type: none;
 }
+
+.event-img {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border-radius: 16px 0px 0px 16px;
+}
+
+.my-event-card {
+  position: relative;
+  height: 100px;
+  margin-top: 24px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border-radius: 12px;
+  background-color: white;
+}
+
+.my-event-date {
+  font-size: 10px;
+  width: 60px;
+  position: absolute;
+  top: 16px;
+  left: -24px;
+  z-index: 10;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.event-card {
+
+}
+
+.event-text {
+  overflow: hidden;
+}
+
+.event-name {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.event-name > a {
+  text-decoration: none;
+}
+
+.event-time {
+  font-size: 10px;
+}
+
+.event-desc {
+
+}
+
+.event-location {
+
+}
