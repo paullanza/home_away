@@ -257,6 +257,9 @@ dinner = Event.create({
                         title: "Dinner at Le Milsa",
                         date: Date.new(2022, 05, 30),
                         location: "Montreal",
+                        address: "1476 Crescent, Montreal, QC",
+                        starting_time: "19:00",
+                        ending_time: "22:00",
                         description: "Dinner at a very good brazilian restaurant in Montreal for those who miss home",
                         category: food,
                         user: user2
@@ -266,6 +269,9 @@ festival = Event.create({
                           title: "Brazilian Music festival",
                           date: Date.new(2022, 07, 04),
                           location: "Montreal",
+                          address: "Parc Jean-Drapeau, Montreal, QC",
+                          starting_time: "14:00",
+                          ending_time: "23:00",
                           description: "Some of the best Brazilian artists will be performing in Montreal",
                           category: music,
                           user: user3
@@ -274,6 +280,9 @@ out_mov = Event.create({
                          title: "Outdoor Movies",
                          date: Date.new(2022, 07, 24),
                          location: "Montreal",
+                         address: "Parc Laurier, Montreal, QC",
+                         starting_time: "18:00",
+                         ending_time: "22:00",
                          description: "We will be screening two Brazilian movies in the park",
                          category: cinema,
                          user: user4
@@ -282,6 +291,9 @@ braz_bik = Event.create({
                           title: "Brazilian Biking at Bromont",
                           date: Date.new(2022, 06, 14),
                           location: "Montreal",
+                          address: "Bromont, QC",
+                          starting_time: "12:00",
+                          ending_time: "15:00",
                           description: "A day of mount biking at bromont",
                           category: mount_biking,
                           user: user5
@@ -290,6 +302,9 @@ sneaker_con = Event.create({
                              title: "Sneaker Con",
                              date: Date.new(2022, 06, 11),
                              location: "Montreal",
+                             address: "1001 Pl. Jean-Paul-Riopelle, Montréal, QC",
+                             starting_time: "12:00",
+                             ending_time: "19:00",
                              description: "People will be able to sell and trade sneakers",
                              category: shoe_exchange,
                              user: user6
@@ -298,6 +313,9 @@ bar_crawl = Event.create({
                            title: "Bar Crawl",
                            date: Date.new(2022, 05, 28),
                            location: "Montreal",
+                           address: "Metro Berri-Uqam, Montreal, QC",
+                           starting_time: "20:00",
+                           ending_time: "03:00",
                            description: "We will be crawling some of the best bar in town",
                            category: night_life,
                            user: user4
@@ -306,6 +324,9 @@ foot_game = Event.create({
                            title: "Football Game",
                            date: Date.new(2022, 06, 04),
                            location: "Montreal",
+                           address: "Parc Villeray, Montréal, QC",
+                           starting_time: "14:00",
+                           ending_time: "16:00",
                            description: "Looking for enought people to play 7 a side game of football",
                            category: sports,
                            user: user5
@@ -314,6 +335,9 @@ quebec = Event.create({
                         title: "Roadtrip to Quebec City",
                         date: Date.new(2022, 07, 13),
                         location: "Montreal",
+                        address: "Metro Jean-Talon, Montréal, QC",
+                        starting_time: "06:00",
+                        ending_time: "22:00",
                         description: "A day trip to Quebec City",
                         category: roadtrip,
                         user: user5
@@ -322,6 +346,9 @@ museum = Event.create({
                         title: "Museums tour",
                         date: Date.new(2022, 07, 23),
                         location: "Montreal",
+                        address: "11 Place Ville Marie, Montréal, QC",
+                        starting_time: "15:00",
+                        ending_time: "17:00",
                         description: "A visit of some of the best museum in town",
                         category: cultural,
                         user: user13
@@ -330,6 +357,9 @@ cooking_class = Event.create({
                                title: "Cooking Class",
                                date: Date.new(2022, 07, 11),
                                location: "Montreal",
+                               address: "6565 Jarry, Montréal, QC",
+                               starting_time: "17:00",
+                               ending_time: "19:00",
                                description: "A cooking class with a world class chef",
                                category: food,
                                user: user15
@@ -338,6 +368,9 @@ tennis = Event.create({
                         title: "Tennis Match",
                         date: Date.new(2022, 10, 19),
                         location: "Montreal",
+                        address: "Parc Jeanne-Mance, Montréal, QC",
+                        starting_time: "13:00",
+                        ending_time: "16:00",
                         description: "Looking for peoples to play tennis",
                         category: sports,
                         user: user16
@@ -346,6 +379,9 @@ jamming = Event.create({
                          title: "Jamming session",
                          date: Date.new(2022, 11, 1),
                          location: "Montreal",
+                         address: "Mont-Royal, Montréal, QC",
+                         starting_time: "14:00",
+                         ending_time: "17:00",
                          description: "Looking for people to jam",
                          category: music,
                          user: user14
@@ -354,6 +390,9 @@ hiking_st_bruno = Event.create({
                                  title: "Hiking at St-Bruno",
                                  date: Date.new(2022, 07, 19),
                                  location: "Montreal",
+                                 address: "330 Rang des Vingt Cinq E, Saint-Bruno-de-Montarville, QC",
+                                 starting_time: "10:00",
+                                 ending_time: "16:00",
                                  description: "A day of hiking at mont St-Bruno",
                                  category: hiking,
                                  user: user13
@@ -362,6 +401,9 @@ club = Event.create({
                       title: "Night Out at the Club",
                       date: Date.new(2022, 07, 19),
                       location: "Montreal",
+                      address: "3781 Boul. Saint-Laurent,Montreal, QC",
+                      starting_time: "22:00",
+                      ending_time: "03:00",
                       description: "Looking for people that enjoy clubing",
                       category: night_life,
                       user: user2
@@ -370,6 +412,9 @@ board = Event.create({
                        title: "Board Game Night",
                        date: Date.new(2022, 10, 29),
                        location: "Montreal",
+                       address: "6505 Rue Des Ecores, Montreal, QC",
+                       starting_time: "17:00",
+                       ending_time: "22:00",
                        description: "Looking for people that enjoy playing board game",
                        category: social,
                        user: user16
@@ -379,6 +424,9 @@ hiking_st_hilaire = Event.create({
                                title: "Hiking at St-Hilaire",
                                date: Date.new(2022, 10, 29),
                                location: "Montreal",
+                               address: "Mont-Saint-Hilaire, Saint-Hilaire, QC",
+                               starting_time: "10:00",
+                               ending_time: "18:00",
                                description: "Hiking as St-Hilaire",
                                category: hiking,
                                user: user13

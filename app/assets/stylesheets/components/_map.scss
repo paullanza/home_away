@@ -21,11 +21,12 @@
 }
 
 .sticky-map {
-  position: -webkit-sticky;
   position: sticky;
-  bottom: 0vh;
-  padding: 50px;
-  z-index: 1;
   border-radius: 8px;
-  position: fixed;
+  position: -webkit-sticky;
+  top: 452px;
+}
+
+.parent-for-sticky-map {
+  position: relative;
 }
