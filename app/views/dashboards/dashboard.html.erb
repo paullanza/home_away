@@ -71,7 +71,10 @@
                 <div class ="event-date ">
                   <p><%= event.date.strftime("%dth of %B") %></p>
                 </div>
-                <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+                <div>
+                  <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+                  <p><%= event.starting_time %> - <%= event.ending_time %></p>
+                </div>
                 <p><%= event.description %></p>
                 <p class="event-loc"><em><%= event.location %></em></p>
               </div>
