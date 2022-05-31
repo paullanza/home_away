@@ -1,0 +1,24 @@
+.footer {
+  background: #F4F4F4;
+  justify-content: space-between;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  position: absolute;
+  bottom: 0;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: #393E5B;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
