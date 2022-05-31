@@ -9,6 +9,8 @@
 @import "event_card";
 @import "grid";
 @import "card";
+@import "event_cards";
+@import "button";
 @import "message";
 @import "footer";
 
@@ -17,3 +19,4 @@ body {
   min-height: 100vh;
   padding-bottom: 2.5rem;    /* Footer height */
 }
+

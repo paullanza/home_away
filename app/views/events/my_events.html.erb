@@ -1,15 +1,44 @@
-<h2>My Events</h2>
-
-<ul>
-  <% @my_events.each do |event| %>
-    <li><%= event.title %></li>
-  <% end %>
-</ul>
-
-<h2>My participations</h2>
-
-<ul>
-  <% @my_participations.each do |participation| %>
-    <li><%= participation.event.title %></li>
-  <% end %>
-</ul>
+<div class="container justify-content-between">
+  <div class="row">
+    <h1>My Events</h1>
+    <%# Paul: This is the mapbox div. %>
+    <div class="col-4 my-event-map" style="width: 400px; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @events_markers.to_json %>"
+      data-mapbox-participations-markers-value="<%= @participations_markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="col-8">
+      <div>
+        <h2 class="p-2 m-0">Attending</h2>
+      </div>
+      <%# Paul: This list is for the events the user is attending. %>
+        <ul id="part-list">
+          <div class="row">
+            <% @participations.each do |participation| %>
+              <div class="col-6">
+                <li><%= render "shared/event_card", event: participation %></li>
+              </div>
+            <% end %>
+          </div>
+        </ul>
+        <hr style="height:2px; color:black;">
+      <div>
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="p-2 mb-0">Hosting</h2>
+          <%= link_to "Create an Event", new_event_path, class:"btn btn-primary create-event align-middle h-32" %>
+        </div>
+        <%# Paul: This list is for the events the user has created. %>
+        <ul id="host-list">
+          <div class="row">
+            <% @my_events.each do |event| %>
+              <div class="col-6">
+                <li><%= render "shared/event_card", event: event %></li>
+              </div>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
