@@ -1,9 +1,7 @@
 
 <div class="container justify-content-between">
-  <div>
-    <h1>My Events</h1>
-  </div>
   <div class="row">
+    <h1>My Events</h1>
     <div class="col-4 my-event-map" style="width: 400px; height: 600px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @events_markers.to_json %>"
@@ -18,7 +16,7 @@
           <div class="row">
             <% @participations.each do |participation| %>
               <div class="col-6">
-                <li><%= link_to participation.title, event_path(participation) %></li>
+                <li><%= render "shared/event_card", event: participation %></li>
               </div>
             <% end %>
           </div>
@@ -32,7 +30,7 @@
           <div class="row">
             <% @my_events.each do |event| %>
               <div class="col-6">
-                <li><%= link_to event.title, event_path(event) %></li>
+                <li><%= render "shared/event_card", event: event %></li>
               </div>
             <% end %>
           </div>
