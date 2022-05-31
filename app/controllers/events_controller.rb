@@ -28,10 +28,12 @@ class EventsController < ApplicationController
     authorize @event, policy_class: EventPolicy
     # added current user to events
     @event.user = current_user
+    # need the location of the user same as the event
+    @event.location = current_user.residence
 
     if @event.save
       # redirect to all events if save
-      redirect_to events_path
+      redirect_to event_path(@event)
     else
       # if not render the page again
       render :new

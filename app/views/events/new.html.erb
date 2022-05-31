@@ -1,13 +1,53 @@
-<h1>Create an event</h1>
+<%# cloudinary for images %>
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <div class="container d-flex flex-column justify-content-center h-100">
+    <h1>Create an event</h1>
+    <%= simple_form_for @event do |f| %>
+      <div class="col-md-4">
+        <%= f.input :title, placeholder: "Title of the event", label: false %>
+      </div>
+      <div class="col-md-4">
+        <%= f.association :category, prompt: "Category", label: false %>
+      </div>
+      <%# I need two buttons, first appears when open the event to assist to the event, then Not going to cancel %>
+      <%# <i class="fa-solid fa-camera fa-2xs d-flex justify-content-end" ></i> %>
+      <%= f.input :photo, label: false, wrapper_html: {class: "fa-solid fa-camera fa-2xs", data: { controller: "photo-input", action: "click->photo-input#chooseFile" } }, input_html: {class: "d-none", data: { photo_input_target: "input" } } %>
+  </div>
+</div>
 
-<%= simple_form_for @event do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :address %>
-  <%= f.input :starting_time %>
-  <%= f.input :ending_time %>
-  <%= f.input :date %>
-  <%= f.association :category %>
-  <%= f.submit %>
-<% end %>
+<div class='container'>
+<div class="row position-relative">
+  <div class="event-popup-title-new col-sm-6 mx-2 pt-3 text-center">
+    <div class="col-sm-3 me-1">
+      <%= f.input :starting_time, placeholder: "Start: 18:00", label: false %>
+    </div>
+    <div class="col-sm-3 me-1">
+      <%= f.input :ending_time, placeholder: "End: 18:00", label: false %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :date, label: false %>
+    </div>
+  </div>
+  <div class="col-sm-6 pt-5 bg-white ps-4">
+      <h4 class="pt-4">Location:</h4>
+      <%= f.input :address, placeholder: "Address: 101, name Street, City, State", label: false %>
+      <h4>Description:</h4>
+      <p><%= f.input :description, placeholder: "Description", label: false %></p>
+    <div class="d-flex justify-content-end">
+      <%= f.submit class: "btn btn-primary mx-1" %>
+  <% end %>
+      <%= link_to 'Back to dashboard', events_path, class: "btn btn-primary mx-1"%>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 bg-white min-height: 380px">
+    <div class="map-event"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+</div>
+</div>
