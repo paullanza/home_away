@@ -49,11 +49,11 @@ class EventsController < ApplicationController
   end
 
   def my_events
-    # get a scope for all the Events I created just like Event.all but with pundit authorization
+    # Paul: Policy to get all events, filtered by current user
     @my_events = policy_scope(Event).where(user: current_user)
     # Paul: @participations is an array to get just the events from participations
     @participations = current_user.participation_events
-    # this `geocoded` scope filters only events with coordinates (latitude & longitude)
+    # Paul: Geocoding the events the current user has created
     @events_markers = @my_events.geocoded.map do |event|
       {
         lat: event.latitude,
@@ -63,6 +63,7 @@ class EventsController < ApplicationController
         # image_url: helpers.asset_url(image)
       }
     end
+    # Paul: Gecoding the events the current user is attending
     @participations_markers = @participations.geocoded.map do |event|
       {
         lat: event.latitude,
@@ -72,7 +73,6 @@ class EventsController < ApplicationController
         # image_url: helpers.asset_url(image)
       }
     end
-    # raise
   end
 
   # Jose added the destroy method bellow

@@ -5,12 +5,11 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    // eventsMarkers: Array,
     participationsMarkers: Array
   }
 
   connect() {
-  //   console.log(this.markersValue)
+  //   console.log(this.markersValue) These two lines were here for testing
   //   console.log(this.participationsMarkersValue.length)
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -21,7 +20,7 @@ export default class extends Controller {
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers(this.markersValue)
     if (this.participationsMarkersValue.length > 0) {
-      // console.log('CONNECTED')
+      // console.log('CONNECTED') This was for testing as well
       this.#addMarkersToMap(this.participationsMarkersValue)
       this.#fitMapToMarkers(this.participationsMarkersValue)
     }
