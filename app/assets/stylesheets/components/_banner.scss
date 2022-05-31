@@ -16,5 +16,27 @@
 
 .landing {
   font-family: 'Roboto', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+//UI KIT LE WAGON BANNER IMAGE EVENT SHOW
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 280px;
+  // display: flex;
+  justify-content: left;
+  z-index: -1;
+  // align-items: center;
+  text-align: left;
   color: white;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: roboto;
+  padding-left: 70px;
+  padding-top: 70px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 0px;
 }

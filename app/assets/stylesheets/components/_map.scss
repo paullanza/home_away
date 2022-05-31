@@ -12,3 +12,26 @@
   border-radius: 16px;
   box-shadow: 5px 10px 8px #888888;
 }
+
+// for the event details / event new / event edit
+.main-container {
+  display: flex;
+}
+
+.map-event {
+  min-height: 400px;
+  top: 0;
+  margin: 12px;
+  border-radius: 5px;
+}
+
+.sticky-map {
+  position: sticky;
+  border-radius: 8px;
+  position: -webkit-sticky;
+  top: 452px;
+}
+
+.parent-for-sticky-map {
+  position: relative;
+}
