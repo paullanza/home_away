@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 parent-for-sticky-map">
       <div class="d-flex" style="position:sticky; top:56px;">
         <h2 class="ms-3">Events</h2>
         <%# categories tag search bar %>
@@ -57,27 +57,29 @@
       </div>
 
 
-        <div style="width: 605px; height: 333px;", class="ms-3 sticky-map"
+      <%# iterate through all the events %>
+      <div class="cards-event fixed">
+        <% @events.each do |event| %>
+          <div class="card-event m-3">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-event-infos">
+              <div class ="event-date ">
+                <p><%= event.date.strftime("%dth of %B") %></p>
+              </div>
+              <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
+              <p><%= event.description %></p>
+              <p class="event-loc"><em><%= event.location %></em></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div style="width: 605px; height: 333px;", class="ms-3 sticky-map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-        <%# iterate through all the events %>
-        <div class="cards-event fixed">
-          <% @events.each do |event| %>
-            <div class="card-event m-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-event-infos">
-                <div class ="event-date ">
-                  <p><%= event.date.strftime("%dth of %B") %></p>
-                </div>
-                <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
-                <p><%= event.description %></p>
-                <p class="event-loc"><em><%= event.location %></em></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
+      </div>
+
     </div>
   </div>
 </div>
