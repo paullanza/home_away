@@ -10,3 +10,10 @@
 @import "grid";
 @import "card";
 @import "message";
+@import "footer";
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;    /* Footer height */
+}
