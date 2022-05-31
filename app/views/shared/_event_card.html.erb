@@ -1,12 +1,12 @@
 <div class="d-flex my-event-card">
-  <p class="my-event-date"><%= event.date %></p>
+  <p class="my-event-date"><%= event.date.strftime("%B %d") %></p>
   <img src="https://loremflickr.com/320/240" class="event-img" />
     <div class="event-text">
       <h2 class="event-name"><%= link_to event.title, event_path(event) %></h2>
       <p class="event-time"><%= "#{event.starting_time} - #{event.ending_time}" %></p>
       <p class="event-desc"><%= event.description %></p>
       <div>
-        <p class="event-location"><%= event.location %></p>
+        <p class="event-location"><%= event.address %></p>
       </div>
     </div>
 </div>
