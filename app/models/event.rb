@@ -3,13 +3,13 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :participations, dependent: :destroy
   validates :title, uniqueness: true
-  validates :title, :date, :location, :description, :category, :user, presence: true
+  validates :title, :date, :location, :address, :starting_time, :ending_time, :description, :category, :user, presence: true
   validates :description, length: { minimum: 25 }
 
   # Cloudinary
   has_one_attached :photo
 
   # Geocoder (Mapbox)
-  geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_location?
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
