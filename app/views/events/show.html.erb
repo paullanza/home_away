@@ -1,8 +1,10 @@
 <%# cloudinary for images %>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <h1><%= @event.title %></h1>
-  <h3><%= @event.category.name %></h3>
-  <%= link_to 'Attend', event_participations_path(@event), method: 'post', class: "btn btn-primary px-4 rounded-5" %>
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <div class="container d-flex flex-column justify-content-center h-100">
+    <h1><%= @event.title %></h1>
+    <h3><%= @event.category.name %></h3>
+    <%= link_to 'Attend', event_participations_path(@event), method: 'post', class: "btn btn-primary px-4 rounded-5", style:"max-width: max-content;" %>
+  </div>
 </div>
 
 <div class='container'>
@@ -11,7 +13,7 @@
     <h3><%= @event.date %></h3>
   </div>
   <div class="col-sm-6 pt-5 bg-white">
-    <div>
+    <div class='relative-position-right'>
       <%= link_to 'Back to events', events_path, class: "btn btn-primary"%>
 
       <% if @event.user == current_user %>
@@ -39,7 +41,7 @@
         class: 'ms-3 btn btn-danger',
         style: "min-width: 100px;" %>
       <% end %>
-     </div>
+    </div>
     <h4>Location:</h4>
     <p><%= @event.location %></p>
     <h4>Description:</h4>
