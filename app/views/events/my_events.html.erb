@@ -1,6 +1,10 @@
+
 <div class="container justify-content-between">
+  <div>
+    <h1>My Events</h1>
+  </div>
   <div class="row">
-    <div class="col-4" style="width: 400px; height: 600px;"
+    <div class="col-4 my-event-map" style="width: 400px; height: 600px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @events_markers.to_json %>"
       data-mapbox-participations-markers-value="<%= @participations_markers.to_json %>"
@@ -10,7 +14,7 @@
       <div>
         <h2>Attending</h2>
       </div>
-        <ul>
+        <ul id="part-list">
           <div class="row">
             <% @participations.each do |participation| %>
               <div class="col-6">
@@ -24,7 +28,7 @@
           <h2>Hosting</h2>
           <%= link_to "Create an Event", new_event_path, class:"btn btn-primary" %>
         </div>
-        <ul>
+        <ul id="host-list">
           <div class="row">
             <% @my_events.each do |event| %>
               <div class="col-6">
