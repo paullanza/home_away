@@ -72,6 +72,7 @@ class EventsController < ApplicationController
         # image_url: helpers.asset_url(image)
       }
     end
+    # raise
   end
 
   # Jose added the destroy method bellow

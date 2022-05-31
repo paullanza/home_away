@@ -10,8 +10,8 @@ export default class extends Controller {
   }
 
   connect() {
-    // console.log(this.eventsMarkersValue)
-    // console.log(this.participationsMarkersValue)
+  //   console.log(this.markersValue)
+  //   console.log(this.participationsMarkersValue.length)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -20,9 +20,10 @@ export default class extends Controller {
     })
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers(this.markersValue)
-    if (this.participationsMarkersValue.size > 0) {
-      this.#addMarkersToMap(this.participationsValue)
-      this.#fitMapToMarkers(this.participationsValue)
+    if (this.participationsMarkersValue.length > 0) {
+      // console.log('CONNECTED')
+      this.#addMarkersToMap(this.participationsMarkersValue)
+      this.#fitMapToMarkers(this.participationsMarkersValue)
     }
   }
 
