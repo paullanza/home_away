@@ -32,6 +32,10 @@ class EventsController < ApplicationController
     @event.location = current_user.residence
 
     if @event.save
+      @participation = Participation.new
+      @participation.user = current_user
+      @participation.event = @event
+      @participation.save
       # redirect to all events if save
       redirect_to event_path(@event)
     else

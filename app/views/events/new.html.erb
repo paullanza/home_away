@@ -12,6 +12,7 @@
       <%# I need two buttons, first appears when open the event to assist to the event, then Not going to cancel %>
       <%# <i class="fa-solid fa-camera fa-2xs d-flex justify-content-end" ></i> %>
       <%= f.input :photo, label: false, wrapper_html: {class: "fa-solid fa-camera fa-2xs d-flex justify-content-end", data: { controller: "photo-input", action: "click->photo-input#chooseFile" } }, input_html: {class: "d-none", data: { photo_input_target: "input" } } %>
+      <%# How do I show the image? %>
   </div>
 </div>
 

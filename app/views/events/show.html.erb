@@ -1,18 +1,25 @@
 <%# cloudinary for images %>
-<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+ url(<%= cl_image_tag @event.photo.key, crop: :fill %>)">
+
+  <% if @event.photo.attached? %>
+    <%= cl_image_tag @event.photo.key, crop: :fill %>
+  <% end %>
   <div class="container d-flex flex-column justify-content-center h-100">
     <h1><%= @event.title %></h1>
     <h3><%= @event.category.name %></h3>
 
     <%# I need two buttons, first appears when open the event to assist to the event, then Not going to cancel %>
-    <% if !@my_participation %>
-      <%= link_to 'Attend', event_participations_path(@event), method: 'post', class: "btn btn-primary px-4 rounded-5", style:"max-width: max-content;" %>
-    <% else %>
-      <h5 class="fst-italic">Attending</h5>
-      <%= link_to "Cancel", participation_path(@my_participation),
-      data: { confirm: "Are you sure you want to delete this event?" },
-      method: "delete",
-      class: "btn btn-primary px-4 rounded-5", style:"max-width: max-content;" %>
+    <% unless @event.user == current_user %>
+      <% if !@my_participation %>
+        <%= link_to 'Attend', event_participations_path(@event), method: 'post', class: "btn btn-primary px-4 rounded-5", style:"max-width: max-content;" %>
+      <% else %>
+        <h5 class="fst-italic">Attending</h5>
+        <%= link_to "Cancel", participation_path(@my_participation),
+        data: { confirm: "Are you sure you want to delete this event?" },
+        method: "delete",
+        class: "btn btn-primary px-4 rounded-5", style:"max-width: max-content;" %>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -27,7 +34,7 @@
       <%= link_to 'Back to dashboard', events_path, class: "btn btn-primary me-2"%>
 
       <% if @event.user == current_user %>
-        <%= link_to "edit", edit_event_path(@event), class: "btn btn-primary me-2" %>
+        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary me-2" %>
       <% end %>
       <%# needs to set the path for both buttons,
       \ Join button need to be disabled if user joined the event.
