@@ -18,3 +18,15 @@
   box-shadow: 4px 4px 8px rgba(0, 0, 0, .25);
   display: flex;
 }
+
+.info-event {
+  position: relative;
+}
+
+.participation-info {
+  bottom: 0;
+  right: 0;
+  justify-content: end;
+  text-align: right;
+  color: gray;
+}

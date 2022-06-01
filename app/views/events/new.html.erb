@@ -34,13 +34,11 @@
       <p><%= f.input :description, placeholder: "Description", label: false %></p>
     <div class="d-flex justify-content-end">
     <%# Need this to send me to event_path once created, JS? %>
-      <%= f.submit class: "btn btn-primary mx-1", link_to, events_path%>
+      <%= f.submit class: "btn btn-primary mx-1"%>
   <% end %>
       <%= link_to 'Back to dashboard', events_path, class: "btn btn-primary mx-1"%>
 
     </div>
-    <%# need to show how many people is comming to the event %>
-      <p class="d-flex justify-content-end"><%=  %></p>
   </div>
 
   <div class="col-sm-6 bg-white min-height: 380px">

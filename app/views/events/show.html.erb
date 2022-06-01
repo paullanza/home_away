@@ -1,6 +1,10 @@
 <%# cloudinary for images %>
-<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
- url(<%= cl_image_tag @event.photo.key, crop: :fill %>)">
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3))">
+  <% if @event.photo.attached? %>
+    <%= cl_image_tag @event.photo.key, crop: :fill %>
+  <% end %>
+ <% #   https://res.cloudinary.com/hafh/image/upload/v1654030136/development/9evck89d5fq6ctfoxco3ase4rvxd.jpg %>
+ <% # banner   https://res.cloudinary.com/hafh/image/upload/c_fill,g_auto,h_250,w_970/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative,l_text:montserrat_25_style_light_align_center:Shop%20Now,w_0.5,y_0.18/v1654030136/development/{#q}.jpg %>
 
   <% if @event.photo.attached? %>
     <%= cl_image_tag @event.photo.key, crop: :fill %>
@@ -27,7 +31,8 @@
 <div class='container'>
 <div class="row position-relative">
   <div class="event-popup-title col-sm-6 mx-2 pt-2 text-center">
-    <h4><%= @event.date.strftime('%A, %m/%d/%Y - %H:%M') %></h4>
+  <%# starting_time ending_time  %>
+    <h4><%= @event.date.strftime('%A, %m/%d/%Y') %> - <%= @event.starting_time %></h4>
   </div>
   <div class="col-sm-6 pt-5 bg-white ps-4">
     <div class="d-flex justify-content-end">
@@ -50,12 +55,25 @@
         class: 'btn btn-primary',
         style: "max-width: max-content;" %>
       <% end %>
-
-    </div>
+    <%# INFO EVENT  %>
+    </div class="info-event position-relative">
       <h4 class="pt-4">Location:</h4>
       <p><%= @event.location %></p>
       <h4>Description:</h4>
       <p><%= @event.description %></p>
+      <%# PARTICIPATIONS %>
+      <div class="participation-info sticky-bottom">
+         <%# Need to set the box to the right-bottom %>
+        <% if @participations.size > 4 %>
+          <p><%= @participations.first.user.first_name %>, <%= @participations.second.user.first_name %> and <%= @participations.size - 2 %> more people are going.</p>
+        <% elsif @participations.size == 3 %>
+          <p><%= @participations.first.user.first_name %>, <%= @participations.second.user.first_name %> and <%= @participations.third.user.first_name %> are going.</p>
+        <% elsif @participations.size == 2 %>
+            <p><%= @participations.first.user.first_name %> and <%= @participations.second.user.first_name %> are going.</p>
+        <% else %>
+           <p>0 people are attending.</p>
+        <% end %>
+      </div>
   </div>
 
   <div class="col-sm-6 bg-white min-height: 380px">
