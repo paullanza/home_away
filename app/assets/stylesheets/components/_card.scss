@@ -1,5 +1,5 @@
 .card {
-  border-radius: 8px;
+  border-radius: 16px;
   justify-content: space-between;
 }
 .card p {
@@ -85,10 +85,10 @@
   border: 1px solid rgba(0,0,0,0.2);
   height: 140px;
   width: 140px;
-  border-radius: 8px;
+  border-radius: 16px;
   position: relative;
-  left: 80px;
-  top: -40px;
+  left: 23%;
+  top: -10%;
   background-image: url("https://ca.slack-edge.com/T02NE0241-U039ZBN5J11-gc43c9b2b007-512");
   background-size: contain;
 }
