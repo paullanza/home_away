@@ -1,14 +1,10 @@
 <%# cloudinary for images %>
 <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3))">
   <% if @event.photo.attached? %>
-    <%= cl_image_tag @event.photo.key, crop: :fill %>
+  <%# need it to be BACKROUND-SIZE COVER %>
+    <%= cl_image_tag @event.photo.key, height: 280, crop: :scale %>
   <% end %>
- <% #   https://res.cloudinary.com/hafh/image/upload/v1654030136/development/9evck89d5fq6ctfoxco3ase4rvxd.jpg %>
- <% # banner   https://res.cloudinary.com/hafh/image/upload/c_fill,g_auto,h_250,w_970/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative,l_text:montserrat_25_style_light_align_center:Shop%20Now,w_0.5,y_0.18/v1654030136/development/{#q}.jpg %>
 
-  <% if @event.photo.attached? %>
-    <%= cl_image_tag @event.photo.key, crop: :fill %>
-  <% end %>
   <div class="container d-flex flex-column justify-content-center h-100">
     <h1><%= @event.title %></h1>
     <h3><%= @event.category.name %></h3>
@@ -31,8 +27,7 @@
 <div class='container'>
 <div class="row position-relative">
   <div class="event-popup-title col-sm-6 mx-2 pt-2 text-center">
-  <%# starting_time ending_time  %>
-    <h4><%= @event.date.strftime('%A, %m/%d/%Y') %> - <%= @event.starting_time %></h4>
+    <h5><%= @event.date.strftime('%A, %m/%d/%Y') %> - <%= @event.starting_time %>h </h5>
   </div>
   <div class="col-sm-6 pt-5 bg-white ps-4">
     <div class="d-flex justify-content-end">
@@ -41,9 +36,6 @@
       <% if @event.user == current_user %>
         <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary me-2" %>
       <% end %>
-      <%# needs to set the path for both buttons,
-      \ Join button need to be disabled if user joined the event.
-      \ Also need a pop-up to let know the user he joined the event.  %>
 
       <%# Jose added the button below to delete the event.
       It only appers if the user is the one who created the event%>
