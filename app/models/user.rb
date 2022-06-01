@@ -22,4 +22,8 @@ class User < ApplicationRecord
     max_char = 197
     "#{biography[0..max_char]}#{biography.length > max_char ? '...' : ''}"
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
