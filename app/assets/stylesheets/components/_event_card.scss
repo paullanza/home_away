@@ -23,10 +23,34 @@
   position: relative;
 }
 
+.big-div {
+  position: relative;
+}
+
+.center-info {
+  position: relative;
+}
+
 .participation-info {
-  bottom: 0;
-  right: 0;
   justify-content: end;
   text-align: right;
   color: gray;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.icon-click-back {
+  height: 35px;
+  width: 35px;
+  // padding: 2px;
+  margin-right: 5px;
+  align-self: center;
+}
+
+.icon-click {
+  height: 30px;
+  width: 30px;
+  // padding: 2px;
+  margin-right: 5px;
 }
