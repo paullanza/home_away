@@ -45,7 +45,7 @@
         <div class="header-chat rounded mt-1">
           <i class="ms-2" aria-hidden="true">
             <% unless @chatroom.user1 == current_user %>
-              <%= cl_image_tag @chatroom.user1.photo.key, crop: :thumb, gravity: :face, zoom: 0.4, class: "photo radius-50" %>
+              <%= cl_image_tag @chatroom.user1.photo.key, height: 45, width: 45,  crop: :thumb, gravity: :face, zoom: 0.4, class: "photo radius-50" %>
             <% else %>
                 <%= cl_image_tag @chatroom.user2.photo.key, height: 45, width: 45,   crop: :thumb, gravity: :face, zoom: 0.4, class: "photo radius-50" %>
             <% end %>
