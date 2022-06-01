@@ -1,9 +1,5 @@
 <%# cloudinary for images %>
-<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3))">
-  <% if @event.photo.attached? %>
-  <%# need it to be BACKROUND-SIZE COVER %>
-    <%= cl_image_tag @event.photo.key, height: 280, crop: :scale %>
-  <% end %>
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 300, crop: :fill if @event.photo.attached? %>')">
 
   <div class="container d-flex flex-column justify-content-center h-100">
     <h1><%= @event.title %></h1>
@@ -29,32 +25,35 @@
   <div class="event-popup-title col-sm-6 mx-2 pt-2 text-center">
     <h5><%= @event.date.strftime('%A, %m/%d/%Y') %> - <%= @event.starting_time %>h </h5>
   </div>
-  <div class="col-sm-6 pt-5 bg-white ps-4">
+  <div class="big-div col-sm-6 pt-5 bg-white ps-4">
     <div class="d-flex justify-content-end">
-      <%= link_to 'Back to dashboard', events_path, class: "btn btn-primary me-2"%>
-
+      <%= link_to dashboard_path do %>
+        <%= image_tag("back.svg", class: "icon-click-back") %>
+      <% end %>
       <% if @event.user == current_user %>
-        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary me-2" %>
+        <%= link_to edit_event_path(@event) do %>
+          <%= image_tag("draw.svg", class: "icon-click")  %>
+        <% end %>
       <% end %>
 
       <%# Jose added the button below to delete the event.
       It only appers if the user is the one who created the event%>
 
       <% if @event.user == current_user %>
-        <%= link_to "Delete", event_path(@event),
+        <%= link_to event_path(@event),
         data: { confirm: "Are you sure you want to delete this event?" },
-        method: :delete,
-        class: 'btn btn-primary',
-        style: "max-width: max-content;" %>
+        method: :delete do %>
+          <%= image_tag("trash.svg", class: "icon-click-trash") %>
+        <% end %>
       <% end %>
     <%# INFO EVENT  %>
     </div class="info-event position-relative">
-      <h4 class="pt-4">Location:</h4>
-      <p><%= @event.location %></p>
-      <h4>Description:</h4>
-      <p><%= @event.description %></p>
+      <h4 class="centered-info pt-5">Location:</h4>
+      <p class="centered-info"><%= @event.location %></p>
+      <h4 class="centered-info">Description:</h4>
+      <p class="centered-info"><%= @event.description %></p>
       <%# PARTICIPATIONS %>
-      <div class="participation-info sticky-bottom">
+      <div class="participation-info sticky-bottom ">
          <%# Need to set the box to the right-bottom %>
         <% if @participations.size > 4 %>
           <p><%= @participations.first.user.first_name %>, <%= @participations.second.user.first_name %> and <%= @participations.size - 2 %> more people are going.</p>
