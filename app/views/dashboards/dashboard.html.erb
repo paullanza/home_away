@@ -1,14 +1,36 @@
-<div class="container">
+<div class="container-dashboard-page">
 
-  <div class="row">
-    <div class="col-6">
-      <div class="d-flex">
-        <h2 class="me-3">Community</h2>
+  <div class="search-bar">
+
+    <div class="search-left">
+      <div class="search-title">
+        <h2>Community</h2>
+      </div>
+      <div class="search-field">
         <%# expertise tag search bar %>
+          <%= form_tag dashboard_path, method: :get do %>
+          <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white rounded shadow", style: "width: 100%;", include_blank: "Filter by Expertises")%>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="search-right">
+      <div class="search-title">
+        <h2>Events</h2>
+      </div>
+      <%# categories tag search bar %>
+      <div class="search-field">
         <%= form_tag dashboard_path, method: :get do %>
-        <%= select_tag(:expertise_id, options_for_select(Expertise.order(:name).pluck(:name, :id) ,:selected =>params[:expertise_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white rounded shadow", style: "width: 448px;", include_blank: "Filter by Expertises")%>
+          <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white ms-3 rounded shadow", style: "width: 100%;", include_blank: "Filter by Categories")%>
         <% end %>
       </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="padding-top: 30px">
+    <div class="col-6">
+
         <%# iterate through all the profiles %>
       <div class="cards">
         <div class="grid-template">
@@ -21,13 +43,6 @@
     </div>
 
     <div class="col-6 parent-for-sticky-map">
-      <div class="d-flex" style="position:sticky; top:56px;">
-        <h2 class="ms-3">Events</h2>
-        <%# categories tag search bar %>
-        <%= form_tag dashboard_path, method: :get do %>
-          <%= select_tag(:category_id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:category_id]), onchange: 'this.form.submit();', class: "form-control custom-select bg-white ms-3 rounded shadow", style: "width: 492px;", include_blank: "Filter by Categories")%>
-        <% end %>
-      </div>
 
 
       <%# iterate through all the events %>
