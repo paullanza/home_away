@@ -40,7 +40,8 @@
       It only appers if the user is the one who created the event%>
 
       <% if @event.user == current_user %>
-        <%= link_to event_path(@event),
+      <%# NEEDS TO SEND US TO MY EVENTS %>
+        <%= link_to my_events_path(current_user),
         data: { confirm: "Are you sure you want to delete this event?" },
         method: :delete do %>
           <%= image_tag("trash.svg", class: "icon-click-trash") %>
