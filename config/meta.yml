@@ -1,0 +1,5 @@
+meta_product_name: "Home away from home"
+meta_title: "Home Away From Home. A social plataform mad to integrate people from the same nacionallity that are living abroad. A way for making new friends and discovering events in the city."
+meta_description: "Home Away From Home. A social plataform mad to integrate people from the same nacionallity that are living abroad. A way for making new friends and discovering events in the city."
+meta_image: "home_friends_1200x630.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
