@@ -15,15 +15,13 @@
 .card-picture {
   background-color: white;
   flex-grow: 1;
-  height: 300px;
   border-radius: 16px;
   box-shadow: 2px 2px 4px #888888;
   margin-right: 10px;
   padding: 0 20px;
 }
 
-.card-picture img {
-  height: 300px;
+.card-picture-img {
   position: relative;
   top: -30px;
   border-radius: 16px;

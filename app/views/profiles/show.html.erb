@@ -3,14 +3,7 @@
   <p><%= @user.origin %></p>
   <div class="wrapper-profile-content">
     <div class="card-picture">
-      <%# the lines commented bellow, to show the picture of the user,
-      can only be implemented nce cloudinary is good %>
-
-      <%# if @user.photo.attached? %>
-        <%#= cl_image_tag @user.photo.key, crop: :fill %>
-      <%# else %>
-        <%= cl_image_tag @user.photo.key %>
-      <%# end %>
+        <%= cl_image_tag @user.photo.key, height: 300, crop: :thumb, gravity: :face, zoom: 0.6, class: "card-picture-img" %>
     </div>
     <div class="card-expertise">
       <h3>Areas of expertise</h3>

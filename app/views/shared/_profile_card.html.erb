@@ -1,6 +1,5 @@
 <div class="card mt-5 m-3 px-3 shadow">
-  <div class="profile-img">
-  </div>
+     <%= cl_image_tag profile.photo.key, width: 140, height: 140, crop: :thumb, gravity: :face, zoom: 0.8, class: "profile-img" %>
   <div class="card-text-group">
   <div class="card-info">
     <p class=""><em><%= profile.residence %></em></p>
@@ -14,7 +13,7 @@
   </div>
   <%# message will either send you to the chatroom or create one %>
   <div class="card-but">
-      <% chat = Chatroom.find_by("user1_id = ? or user2_id = ?", profile, profile) %>
+      <%  chat = Chatroom.find_by("(user1_id = ? and user2_id = ?) or (user1_id = ? and user2_id =?)", current_user, profile, profile, current_user)%>
       <% if chat %>
         <%= link_to "Message", chatroom_path(chat), class: "btn btn-primary mx-2 mb-3 rounded"%>
       <% else %>
