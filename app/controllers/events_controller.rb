@@ -28,10 +28,16 @@ class EventsController < ApplicationController
     authorize @event, policy_class: EventPolicy
     # added current user to events
     @event.user = current_user
+    # need the location of the user same as the event
+    @event.location = current_user.residence
 
     if @event.save
+      @participation = Participation.new
+      @participation.user = current_user
+      @participation.event = @event
+      @participation.save
       # redirect to all events if save
-      redirect_to events_path
+      redirect_to event_path(@event)
     else
       # if not render the page again
       render :new
@@ -46,13 +52,14 @@ class EventsController < ApplicationController
 
     # find our participation if we have one
     @my_participation = Participation.find_by("user_id = ? and event_id = ? ", current_user, @event)
+    @participations = Participation.where(event: @event)
 
     @markers = @event.geocode.map do
       {
         lat: @event.latitude,
         lng: @event.longitude,
         # info window for each marker
-        info_window: render_to_string(partial: "info_window", locals: { event: @event })
+        # info_window: render_to_string(partial: "info_window", locals: { event: @event })
         # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
       }
     end
