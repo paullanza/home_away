@@ -11,6 +11,7 @@
         </div>
 
           <% @all_my_chatrooms.each do |chatroom| %>
+          <%= link_to(chatroom) do %>
             <div class="discussion rounded mt-1">
               <div class="photo" style="background-image: url(http://e0.365dm.com/16/08/16-9/20/theirry-henry-sky-sports-pundit_3766131.jpg?20161212144602);">
                 <div class="online"></div>
@@ -33,6 +34,7 @@
                   <% end %>
               </div>
             </div>
+            <% end %>
           <% end %>
       </section>
 
