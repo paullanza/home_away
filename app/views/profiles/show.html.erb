@@ -24,9 +24,7 @@
         <% if @user == current_user %>
           <%# bellow is the syntax for a link with an image (icon) instead of a button %>
           <a href="<%= edit_user_registration_path %>"><img alt="edit pencil icon" src="<%= asset_path('pencil_gray_icon.png') %>"
-         width=30" height="30"></a>
-          <a href="/"><img alt="trash can icon" src="<%= asset_path('trash_can_icon.png') %>"
-         width=40" height="40"></a>
+          width="30" height="30"></a>
         <% else %>
         <%# if there is a chatroom %>
           <% if @chatroom %>
