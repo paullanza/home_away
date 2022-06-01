@@ -6,6 +6,8 @@
   max-height: max-content;
   border-radius: 10px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, .25);
+  padding: 2px 20px;
+  width: max-content;
 }
 
 .event-popup-title-new {
@@ -29,6 +31,8 @@
 
 .center-info {
   position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .participation-info {
@@ -41,16 +45,23 @@
 }
 
 .icon-click-back {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   // padding: 2px;
   margin-right: 5px;
   align-self: center;
 }
 
 .icon-click {
+  height: 25px;
+  width: 25px;
+  // padding: 2px;
+  margin-right: 5px;
+}
+
+.icon-click-trash {
   height: 30px;
   width: 30px;
-  // padding: 2px;
+  padding-bottom: 3px;
   margin-right: 5px;
 }

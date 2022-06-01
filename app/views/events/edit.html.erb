@@ -1,10 +1,7 @@
 <div>
   <%# cloudinary for images %>
-  <div class="event-banner" style="background:linear-gradient(to right, rgba(0, 0, 0, 0.5),#f4f4f4);">
-        <% if @event.photo.attached? %>
-        <%# need it to be BACKROUND-SIZE COVER %>
-          <%= cl_image_tag @event.photo.key, height: 280, crop: :scale %>
-        <% end %>
+  <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 300, crop: :fill if @event.photo.attached? %>')">
+
     <div class="container d-flex flex-column justify-content-center h-100">
       <%= simple_form_for @event do |f| %>
       <h1>Edit event</h1>
