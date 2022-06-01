@@ -115,6 +115,14 @@
   overflow: scroll;
 }
 
+.cards-event::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-profile::-webkit-scrollbar {
+  display: none;
+}
+
 .cards-profile {
   height: 666px;
   width: 635px;
