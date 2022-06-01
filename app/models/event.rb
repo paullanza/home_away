@@ -17,4 +17,9 @@ class Event < ApplicationRecord
     max_char = 37
     "#{description[0..max_char]}#{description.length > max_char ? '...' : ''}"
   end
+
+  def short_month
+    max_char = 2
+    "#{date.strftime('%B')[0..max_char]}"
+  end
 end

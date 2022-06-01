@@ -3,7 +3,7 @@ event will need to be associated with the necessary variable in the page it
 is called to. %>
 
 <div class="d-flex my-event-card">
-  <p class="my-event-date"><%= event.date.strftime("%B %d") %></p>
+  <p class="my-event-date"><%= "#{event.short_month} #{event.date.strftime("%d")}" %></p>
   <img src="https://loremflickr.com/320/240" class="event-img" />
     <div class="event-text">
       <h2 class="event-name"><%= link_to event.title, event_path(event) %></h2>
