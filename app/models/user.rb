@@ -16,10 +16,14 @@ class User < ApplicationRecord
   has_many :chatrooms_as_user1, class_name: "Chatroom", foreign_key: :user1_id
   has_many :chatrooms_as_user2, class_name: "Chatroom", foreign_key: :user2_id
   # Cloudinary
-  # has_one_attached :photo
+  has_one_attached :photo
 
   def short_bio
     max_char = 197
     "#{biography[0..max_char]}#{biography.length > max_char ? '...' : ''}"
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

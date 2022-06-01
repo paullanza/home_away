@@ -77,7 +77,7 @@ user4 = User.create({
                       residence: 'Montreal',
                       first_name: 'Luis',
                       last_name: 'Sequeira',
-                      biography: 'I\ve been working at a car dealership for 3 years now.
+                      biography: 'I\'ve been working at a car dealership for 3 years now.
                                   I speak Portuguese, English and french. During my free time i
                                   enjoy doing magic trick.'
                     })
@@ -206,6 +206,42 @@ user16 = User.create({
                       biography: 'My name is Martin. I loved doing any sort of sports.
                                   You will never find my inside on a sunny day, except if I am at the office.'
                     })
+
+paul = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097628/development/240739733_402519401206811_4856394276528761759_ncrop2_dipzit.jpg')
+stinky_pete = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097640/development/IMG_2172_r6ousl.jpg')
+jose = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097948/development/ben-parker-OhKElOkQ3RE-unsplash_q5thrn.jpg')
+ana = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097992/development/aiony-haust-3TLl_97HNJo-unsplash_qijn1f.jpg')
+maria = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098031/development/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash_emtlme.jpg')
+luis = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098151/development/joseph-gonzalez-iFgRcqHznqg-unsplash_nn5xq4.jpg')
+jaoa = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098216/development/julian-wan-WNoLnJo7tS8-unsplash_yy0ttg.jpg')
+oscar = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098254/development/jurica-koletic-7YVZYZeITc8-unsplash_f9qtad.jpg')
+thomas = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098287/development/lesly-juarez-RukI4qZGlQs-unsplash_dfisk2.jpg')
+milton = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098317/development/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_gjrdcv.jpg')
+manuel = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098346/development/luis-villasmil-hh3ViD0r0Rc-unsplash_t60txa.jpg')
+joanna = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098406/development/jake-nackos-IF9TK5Uy-KI-unsplash_xp38bk.jpg')
+heitor = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098437/development/redd-pzOUnvx9c1E-unsplash_jtmlrw.jpg')
+wilson = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098488/development/taylor-8Vt2haq8NSQ-unsplash_tgzoif.jpg')
+allessandra = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098554/development/michael-dam-mEZ3PoFGs_k-unsplash_gtt6wr.jpg')
+bruna = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098625/development/stefan-stefancik-QXevDflbl8A-unsplash_xoxdpj.jpg')
+martin = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098719/development/albert-dera-ILip77SbmOE-unsplash_ctsi9m.jpg')
+
+carlos.photo.attach(io: paul, filename: 'paul.png', content_type: 'image/png')
+user14.photo.attach(io: stinky_pete, filename: 'pete.png', content_type: 'image/png')
+user.photo.attach(io: jose, filename: 'jose.png', content_type: 'image/png')
+user2.photo.attach(io: maria, filename: 'maria.png', content_type: 'image/png')
+user3.photo.attach(io: ana, filename: 'ana.png', content_type: 'image/png')
+user4.photo.attach(io: luis, filename: 'luis.png', content_type: 'image/png')
+user5.photo.attach(io: jaoa, filename: 'jaoa.png', content_type: 'image/png')
+user6.photo.attach(io: oscar, filename: 'oscar.png', content_type: 'image/png')
+user7.photo.attach(io: thomas, filename: 'thomas.png', content_type: 'image/png')
+user8.photo.attach(io: milton, filename: 'milton.png', content_type: 'image/png')
+user9.photo.attach(io: manuel, filename: 'manuel.png', content_type: 'image/png')
+user10.photo.attach(io: joanna, filename: 'joanna.png', content_type: 'image/png')
+user11.photo.attach(io: heitor, filename: 'heitor.png', content_type: 'image/png')
+user12.photo.attach(io: wilson, filename: 'wilson.png', content_type: 'image/png')
+user13.photo.attach(io: allessandra, filename: 'allessandra.png', content_type: 'image/png')
+user15.photo.attach(io: bruna, filename: 'bruna.png', content_type: 'image/png')
+user16.photo.attach(io: martin, filename: 'martin.png', content_type: 'image/png')
 
 UsersExpertise.create(user: user, expertise: out_sport)
 UsersExpertise.create(user: user, expertise: finance)

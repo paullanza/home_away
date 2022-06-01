@@ -30,4 +30,10 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || dashboard_path)
   end
+
+  # setup host to generate the absolute url needed to load images from the external world (Facebook, Twitter, ...). overrides Rails.application.default_url_options[:host]
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
 end

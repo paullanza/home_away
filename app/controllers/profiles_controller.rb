@@ -12,6 +12,4 @@ class ProfilesController < ApplicationController
     @chatroom_new = Chatroom.new
     @expertises = UsersExpertise.where(user: @user)
   end
-
-
 end

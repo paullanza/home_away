@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: #f4f4f4;
+  z-index: 2001;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +15,10 @@
 .navbar-whole {
   padding-left: 84px;
   padding-right: 84px;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
 }

@@ -26,8 +26,8 @@ ul {
   width: 60px;
   padding-left: 8px;
   position: absolute;
-  top: 16px;
-  left: -24px;
+  top: 10%;
+  left: -5%;
   z-index: 10;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -35,7 +35,8 @@ ul {
 
 .event-text {
   overflow: hidden;
-  padding: 4px;
+  padding: 8px;
+  padding-top: 16px;
 }
 
 .event-name {

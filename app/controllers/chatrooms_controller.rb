@@ -4,6 +4,8 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     # find a chatroom
     @chatroom = Chatroom.find(params[:id])
+    @all_my_chatrooms = Chatroom.where("user1_id = ? or user2_id = ?", current_user, current_user).order(updated_at: :desc)
+    # @all_my_chatrooms = current_user.chatrooms
     # authorize it
     authorize @chatroom, policy_class: ChatroomPolicy
   end

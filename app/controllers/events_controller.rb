@@ -77,7 +77,7 @@ class EventsController < ApplicationController
         lng: event.longitude,
         # info window for each marker
         info_window: render_to_string(partial: "info_window", locals: { event: event }),
-        # image_url: helpers.asset_url(image)
+        image_url: helpers.asset_url("person-walking-solid")
       }
     end
     # Paul: Gecoding the events the current user is attending
@@ -87,7 +87,7 @@ class EventsController < ApplicationController
         lng: event.longitude,
         # info window for each marker
         info_window: render_to_string(partial: "info_window", locals: { event: event }),
-        # image_url: helpers.asset_url(image)
+        image_url: helpers.asset_url("person-solid")
       }
     end
   end
