@@ -77,7 +77,7 @@ user4 = User.create({
                       residence: 'Montreal',
                       first_name: 'Luis',
                       last_name: 'Sequeira',
-                      biography: 'I\ve been working at a car dealership for 3 years now.
+                      biography: 'I\'ve been working at a car dealership for 3 years now.
                                   I speak Portuguese, English and french. During my free time i
                                   enjoy doing magic trick.'
                     })
