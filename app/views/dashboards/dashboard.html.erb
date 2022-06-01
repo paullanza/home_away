@@ -13,35 +13,8 @@
       <div class="cards">
         <div class="grid-template">
           <% @profiles.each do |profile| %>
-            <div class="card mt-5 m-2 shadow">
-              <div class="profile-img">
-              </div>
-              <div class="card-text-group">
-              <div class="card-info">
-                <p class=""><em><%= profile.residence %></em></p>
-                  <p>
-                    <% profile.expertises.each do |exp| %>
-                      <em><%= exp.name %></em>,
-                    <% end %>
-                  </p>
-              </div>
-              <h4 class="mx-2"><%= link_to profile.first_name, profile_path(profile), class: "text-decoration-none"  %>
-                <%= link_to profile.last_name, profile_path(profile), class: "text-decoration-none" %></h4>
-              <p class="mx-2"><%= profile.short_bio %></p>
-              </div>
-              <%# message will either send you to the chatroom or create one %>
-              <div class="card-but">
-                  <% chat = Chatroom.find_by("user1_id = ? or user2_id = ?", profile, profile) %>
-                  <% if chat %>
-                    <%= link_to "Message", chatroom_path(chat), class: "btn btn-primary mx-2 mb-3 rounded"%>
-                  <% else %>
-                    <%= simple_form_for @new_chatroom do |f| %>
-                      <%= f.hidden_field :user2_id, value: profile.id %>
-                      <%= f.button :submit, "Message", class: 'btn btn-primary mx-2 mb-3 rounded'  %>
-                    <% end %>
-                  <% end %>
-              </div>
-            </div>
+            <%# Paul: This renders the partial of the profile card. %>
+            <%= render "shared/profile_card", profile: profile %>
           <% end %>
         </div>
       </div>
@@ -60,23 +33,11 @@
       <%# iterate through all the events %>
       <div class="cards-event fixed">
         <% @events.each do |event| %>
-          <div class="card-event m-3">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-event-infos">
-              <div class ="event-date ">
-                <p><%= event.date.strftime("%B %d") %></p>
-              </div>
-              <div>
-                <h2><%= link_to event.title, event_path(event), class: "text-decoration-none" %></h2>
-                <p><%= event.starting_time %> - <%= event.ending_time %></p>
-              </div>
-              <p><%= event.description %></p>
-              <p class="event-loc"><em><%= event.location %></em></p>
-            </div>
-          </div>
+          <%# Paul: This renders the partial of the event card. %>
+          <%= render "shared/event_card", event: event %>
         <% end %>
       </div>
-
+      <%# This is the mapbox div %>
       <div style="width: 605px; height: 313px;", class="ms-3 sticky-map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
