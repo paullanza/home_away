@@ -1,9 +1,9 @@
 <div>
+  <%= simple_form_for @event do |f| %>
   <%# cloudinary for images %>
   <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 300, crop: :fill if @event.photo.attached? %>')">
 
     <div class="container d-flex flex-column justify-content-center h-100">
-      <%= simple_form_for @event do |f| %>
       <h1>Edit event</h1>
         <div class="col-md-4">
           <%= f.input :title, placeholder: "Title of the event", label: false %>
