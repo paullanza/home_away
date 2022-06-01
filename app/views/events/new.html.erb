@@ -1,54 +1,57 @@
-<%# cloudinary for images %>
-<div class="event-banner" style="background:linear-gradient(to right, rgba(0, 0, 0, 0.5),#f4f4f4);">
-  <div class="container d-flex flex-column justify-content-center h-100">
-    <h1>Create an event</h1>
-    <%= simple_form_for @event do |f| %>
-      <div class="col-md-4">
-        <%= f.input :title, placeholder: "Title of the event", label: false %>
+<div>
+<%= simple_form_for @event do |f| %>
+  <%# cloudinary for images %>
+  <div class="event-banner" style="background:linear-gradient(to right, rgba(0, 0, 0, 0.5),#f4f4f4);">
+    <div class="container d-flex flex-column justify-content-center h-100">
+      <h1>Create an event</h1>
+        <div class="col-md-4">
+          <%= f.input :title, placeholder: "Title of the event", label: false %>
+        </div>
+        <div class="col-md-4">
+          <%= f.association :category, prompt: "Category", label: false %>
+        </div>
+        <%= f.input :photo, label: false, wrapper_html: {class: "fa-solid fa-camera fa-2xs d-flex justify-content-end", data: { controller: "photo-input", action: "click->photo-input#chooseFile" } }, input_html: {class: "d-none", data: { photo_input_target: "input" } } %>
+        <%# How do I show the image? Go to show page of event when create %>
+    </div>
+  </div>
+
+  <div class='container'>
+    <div class="row position-relative">
+      <div class="event-popup-title-new col-sm-6 mx-2 pt-3 text-center">
+        <div class="col-sm-3 me-1">
+          <%= f.input :starting_time, placeholder: "Start: 18:00", label: false %>
+        </div>
+        <div class="col-sm-3 me-1">
+          <%= f.input :ending_time, placeholder: "End: 18:00", label: false %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :date, label: false, html5: true %>
+        </div>
       </div>
-      <div class="col-md-4">
-        <%= f.association :category, prompt: "Category", label: false %>
+      <div class="col-sm-6 pt-5 bg-white ps-4">
+        <h4 class="pt-4">Location:</h4>
+        <%= f.input :address, placeholder: "Address: 101, name Street, City, State", label: false %>
+        <h4>Description:</h4>
+        <p><%= f.input :description, placeholder: "Description", label: false %></p>
+        <div class="d-flex justify-content-end">
+          <%= f.submit class: "btn btn-primary mx-1"%>
+          <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary mx-1"%>
+
+        </div>
+
       </div>
-      <%= f.input :photo, label: false, wrapper_html: {class: "fa-solid fa-camera fa-2xs d-flex justify-content-end", data: { controller: "photo-input", action: "click->photo-input#chooseFile" } }, input_html: {class: "d-none", data: { photo_input_target: "input" } } %>
-      <%# How do I show the image? Go to show page of event when create %>
-  </div>
-</div>
 
-<div class='container'>
-<div class="row position-relative">
-  <div class="event-popup-title-new col-sm-6 mx-2 pt-3 text-center">
-    <div class="col-sm-3 me-1">
-      <%= f.input :starting_time, placeholder: "Start: 18:00", label: false %>
-    </div>
-    <div class="col-sm-3 me-1">
-      <%= f.input :ending_time, placeholder: "End: 18:00", label: false %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.input :date, label: false %>
-    </div>
-  </div>
-  <div class="col-sm-6 pt-5 bg-white ps-4">
-      <h4 class="pt-4">Location:</h4>
-      <%= f.input :address, placeholder: "Address: 101, name Street, City, State", label: false %>
-      <h4>Description:</h4>
-      <p><%= f.input :description, placeholder: "Description", label: false %></p>
-    <div class="d-flex justify-content-end">
-    <%# Need this to send me to event_path once created, JS? %>
-      <%= f.submit class: "btn btn-primary mx-1"%>
-  <% end %>
-      <%= link_to 'Back to dashboard', events_path, class: "btn btn-primary mx-1"%>
+      <div class="col-sm-6 bg-white min-height: 380px">
+        <div class="map-event"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
 
-    </div>
-
-  </div>
-
-  <div class="col-sm-6 bg-white min-height: 380px">
-    <div class="map-event"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 
-</div>
+<% end %>
+
 </div>

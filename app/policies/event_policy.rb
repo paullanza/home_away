@@ -8,11 +8,11 @@ class EventPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    create?
   end
 
   def create?
-    new?
+    true
   end
 
   def destroy?
