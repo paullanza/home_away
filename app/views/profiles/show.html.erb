@@ -9,7 +9,7 @@
       <%# if @user.photo.attached? %>
         <%#= cl_image_tag @user.photo.key, crop: :fill %>
       <%# else %>
-        <img src="<%= asset_path('profile_picture.png') %>" alt="profile picture">
+        <%= cl_image_tag @user.photo.key %>
       <%# end %>
     </div>
     <div class="card-expertise">
