@@ -13,9 +13,12 @@
           <% @all_my_chatrooms.each do |chatroom| %>
           <%= link_to(chatroom) do %>
             <div class="discussion rounded mt-1">
-              <div class="photo" style="background-image: url(http://e0.365dm.com/16/08/16-9/20/theirry-henry-sky-sports-pundit_3766131.jpg?20161212144602);">
+                <% unless chatroom.user1 == current_user %>
+                  <%= cl_image_tag chatroom.user1.photo.key, crop: :thumb, gravity: :face, zoom: 0.6, class: "photo" %>
+                <% else %>
+                   <%= cl_image_tag chatroom.user2.photo.key, crop: :thumb, gravity: :face, zoom: 0.6, class: "photo" %>
+                <% end %>
                 <div class="online"></div>
-              </div>
               <div class="desc-contact">
                 <p class="name">
                   <% unless chatroom.user1 == current_user %>
@@ -40,8 +43,20 @@
 
       <section class="chat">
         <div class="header-chat rounded mt-1">
-          <i class="icon fa fa-user-o" aria-hidden="true"></i>
-          <h1 class="name">Chatroom</h1>
+          <i class="ms-2" aria-hidden="true">
+            <% unless @chatroom.user1 == current_user %>
+              <%= cl_image_tag @chatroom.user1.photo.key, crop: :thumb, gravity: :face, zoom: 0.4, class: "photo radius-50" %>
+            <% else %>
+                <%= cl_image_tag @chatroom.user2.photo.key, height: 45, width: 45,   crop: :thumb, gravity: :face, zoom: 0.4, class: "photo radius-50" %>
+            <% end %>
+          </i>
+          <h1 class="name">
+            <% unless @chatroom.user1 == current_user %>
+              <%= @chatroom.user1.first_name %> <%= @chatroom.user1.last_name %>
+            <% else %>
+                <%= @chatroom.user2.first_name %> <%= @chatroom.user2.last_name %>
+            <% end %>
+          </h1>
         </div>
 
         <div class="container chatroom"
