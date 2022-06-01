@@ -9,10 +9,8 @@
       <div class="col-md-4">
         <%= f.association :category, prompt: "Category", label: false %>
       </div>
-      <%# I need two buttons, first appears when open the event to assist to the event, then Not going to cancel %>
-      <%# <i class="fa-solid fa-camera fa-2xs d-flex justify-content-end" ></i> %>
       <%= f.input :photo, label: false, wrapper_html: {class: "fa-solid fa-camera fa-2xs d-flex justify-content-end", data: { controller: "photo-input", action: "click->photo-input#chooseFile" } }, input_html: {class: "d-none", data: { photo_input_target: "input" } } %>
-      <%# How do I show the image? %>
+      <%# How do I show the image? Go to show page of event when create %>
   </div>
 </div>
 
@@ -35,11 +33,14 @@
       <h4>Description:</h4>
       <p><%= f.input :description, placeholder: "Description", label: false %></p>
     <div class="d-flex justify-content-end">
-      <%= f.submit class: "btn btn-primary mx-1" %>
+    <%# Need this to send me to event_path once created, JS? %>
+      <%= f.submit class: "btn btn-primary mx-1", link_to, events_path%>
   <% end %>
       <%= link_to 'Back to dashboard', events_path, class: "btn btn-primary mx-1"%>
 
     </div>
+    <%# need to show how many people is comming to the event %>
+      <p class="d-flex justify-content-end"><%=  %></p>
   </div>
 
   <div class="col-sm-6 bg-white min-height: 380px">
