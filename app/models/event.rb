@@ -12,4 +12,9 @@ class Event < ApplicationRecord
   # Geocoder (Mapbox)
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def short_desc
+    max_char = 37
+    "#{description[0..max_char]}#{description.length > max_char ? '...' : ''}"
+  end
 end

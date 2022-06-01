@@ -10,7 +10,8 @@
 
 .my-event-map {
   border-radius: 16px;
-  box-shadow: 2px 6px 4px #888888;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border: #979DAC solid 1px;
 }
 
 // for the event details / event new / event edit
@@ -22,8 +23,11 @@
   min-height: 380px;
   top: 0;
   margin: 12px;
-  border-radius: 8px;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border: #979DAC solid 1px;
 }
+
 
 .sticky-map {
   position: sticky;
@@ -34,4 +38,11 @@
 
 .parent-for-sticky-map {
   position: relative;
+}
+.dashboard-map {
+  width: 605px;
+  height: 313px;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border: #979DAC solid 1px;
 }

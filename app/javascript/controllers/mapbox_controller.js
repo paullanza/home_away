@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
-  //   console.log(this.markersValue) These two lines were here for testing
+  //   console.log(this.markersValue) // These two lines were here for testing
   //   console.log(this.participationsMarkersValue.length)
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -20,7 +20,7 @@ export default class extends Controller {
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers(this.markersValue)
     if (this.participationsMarkersValue.length > 0) {
-      // console.log('CONNECTED') This was for testing as well
+      // console.log('CONNECTED') // This was for testing as well
       this.#addMarkersToMap(this.participationsMarkersValue)
       this.#fitMapToMarkers(this.participationsMarkersValue)
     }
@@ -32,15 +32,15 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
       // Uncomment l. 29 - 34 if image on the popup
-      // const customMarker = document.createElement("div")
-      // customMarker.className = "marker"
-      // customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      // customMarker.style.backgroundSize = "contain"
-      // customMarker.style.width = "25px"
-      // customMarker.style.height = "25px"
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "25px"
+      customMarker.style.height = "25px"
 
       // add customMarker as an argument in the next line to show the image in the popup
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)

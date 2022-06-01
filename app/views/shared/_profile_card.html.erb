@@ -1,0 +1,27 @@
+<div class="card mt-5 m-3 px-3 shadow">
+  <div class="profile-img">
+  </div>
+  <div class="card-text-group">
+  <div class="card-info">
+    <p class=""><em><%= profile.residence %></em></p>
+      <p>|<% profile.expertises.each do |exp| %>
+          <em><%= exp.name %></em> |
+        <% end %></p>
+  </div>
+  <h4 class="mx-2"><%= link_to profile.first_name, profile_path(profile), class: "text-decoration-none"  %>
+    <%= link_to profile.last_name, profile_path(profile), class: "text-decoration-none" %></h4>
+  <p class="mx-2"><%= profile.short_bio %></p>
+  </div>
+  <%# message will either send you to the chatroom or create one %>
+  <div class="card-but">
+      <% chat = Chatroom.find_by("user1_id = ? or user2_id = ?", profile, profile) %>
+      <% if chat %>
+        <%= link_to "Message", chatroom_path(chat), class: "btn btn-primary mx-2 mb-3 rounded"%>
+      <% else %>
+        <%= simple_form_for @new_chatroom do |f| %>
+          <%= f.hidden_field :user2_id, value: profile.id %>
+          <%= f.button :submit, "Message", class: 'btn btn-primary mx-2 mb-3 rounded'  %>
+        <% end %>
+      <% end %>
+  </div>
+</div>
