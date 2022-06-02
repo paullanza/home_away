@@ -16,9 +16,11 @@
         <ul id="part-list">
           <div class="row">
             <% @participations.each do |participation| %>
+            <% unless participation.user == current_user %>
               <div class="col-6">
                 <li><%= render "shared/event_card", event: participation %></li>
               </div>
+            <% end %>
             <% end %>
           </div>
         </ul>
