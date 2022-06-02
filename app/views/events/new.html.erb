@@ -30,7 +30,13 @@
       </div>
       <div class="col-sm-6 pt-5 bg-white ps-4">
         <h4 class="pt-4">Location:</h4>
-        <%= f.input :address, placeholder: "Address: 101, name Street, City, State", label: false %>
+        <%# ADDING AUTOCOMPLETE ADDRESS %>
+        <%= f.input :address,
+                    wrapper_html: { data: { controller: "geocoder", class: "mapboxgl-ctrl-geocoder",
+                    geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
+                    input_html: { data: { geocoder_target: "address" }, class: "d-none " },
+                    placeholder: "Address: 101, name Street, City, State", label: false %>
+
         <h4>Description:</h4>
         <p><%= f.input :description, placeholder: "Description", label: false %></p>
         <div class="d-flex justify-content-end">
