@@ -4,7 +4,11 @@ is called to. %>
 
 <div class="d-flex my-event-card">
   <p class="my-event-date"><%= "#{event.short_month} #{event.date.strftime("%d")}" %></p>
-  <%= cl_image_tag event.photo.key, width: 140, height: 140, crop: :thumb, gravity: :face, zoom: 0.8, class: "event-img" %>
+  <% if event.photo.key %>
+    <%= cl_image_tag event.photo.key, width: 140, height: 140, crop: :thumb, gravity: :face, zoom: 0.8, class: "event-img" %>
+  <% else %>
+    <img src="" alt="" class="event-img">
+  <% end %>
     <div class="event-text">
       <h2 class="event-name"><%= link_to event.title, event_path(event) %></h2>
       <p class="event-time"><%= "#{event.category.name.upcase} | #{event.starting_time} - #{event.ending_time}" %></p>
