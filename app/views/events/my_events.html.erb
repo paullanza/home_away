@@ -13,7 +13,7 @@
         <h2 class="p-2 m-0">Attending</h2>
       </div>
       <%# Paul: This list is for the events the user is attending. %>
-        <ul id="part-list">
+        <ul class="attending" id="part-list">
           <div class="row">
             <% @participations.each do |participation| %>
               <div class="col-6">
@@ -29,7 +29,7 @@
           <%= link_to "Create an Event", new_event_path, class:"btn btn-primary create-event align-middle h-32" %>
         </div>
         <%# Paul: This list is for the events the user has created. %>
-        <ul id="host-list">
+        <ul class="hosting" id="host-list">
           <div class="row">
             <% @my_events.each do |event| %>
               <div class="col-6">
