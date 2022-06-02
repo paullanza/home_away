@@ -1,7 +1,7 @@
 <div>
 <%= simple_form_for @event do |f| %>
   <%# cloudinary for images %>
-  <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 300, crop: :fill if @event.photo.attached? %>')">
+  <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 1200, crop: :fill if @event.photo.attached? %>')">
 
     <div class="container d-flex flex-column justify-content-center h-100">
       <h1>Edit event</h1>
@@ -35,7 +35,11 @@
         <h4>Description:</h4>
         <p><%= f.input :description, placeholder: "Description", label: false %></p>
         <div class="d-flex justify-content-end">
-          <%= link_to 'Back', my_events_path, class: "btn btn-primary mx-1"%>
+          <%# BUTTONS  %>
+          <%= link_to my_events_path do %>
+            <%= image_tag("back.svg", class: "icon-click-back mt-1 mx-2") %>
+          <% end %>
+          <%# <%= link_to 'Back', my_events_path, class: "btn btn-primary mx-1"%>
           <%= f.submit class: "btn btn-primary mx-1"%>
 
         </div>

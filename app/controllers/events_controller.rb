@@ -99,7 +99,7 @@ class EventsController < ApplicationController
     # destroy only if the user is the one who created the event
     @event.destroy
 
-    redirect_to events_path
+    redirect_to my_events_path
   end
 
   def edit
