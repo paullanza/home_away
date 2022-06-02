@@ -51,7 +51,7 @@
     <%# INFO EVENT  %>
     </div class="info-event position-relative">
       <h4 class="centered-info pt-4">Location:</h4>
-      <p class="centered-info"><%= @event.location %></p>
+      <p class="centered-info"> <%= @event.address %><% @event.location %></p>
       <h4 class="centered-info">Description:</h4>
       <p class="description text-break"><%= @event.description %></p>
       <%# PARTICIPATIONS %>
