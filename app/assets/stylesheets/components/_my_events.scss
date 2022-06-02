@@ -1,0 +1,19 @@
+.attending {
+  height: 333px;
+  width: 635px;
+  overflow: scroll;
+}
+
+.hosting {
+  height: 333px;
+  width: 635px;
+  overflow: scroll;
+}
+
+.attending::-webkit-scrollbar {
+  display: none;
+}
+
+.hosting::-webkit-scrollbar {
+  display: none;
+}
