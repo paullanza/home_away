@@ -16,7 +16,7 @@
                 <% unless chatroom.user1 == current_user %>
                   <%= cl_image_tag chatroom.user1.photo.key, crop: :thumb, gravity: :face, zoom: 0.6, class: "photo" %>
                 <% else %>
-                   <%= cl_image_tag chatroom.user2.photo.key, crop: :thumb, gravity: :face, zoom: 0.6, class: "photo" %>
+                  <%= cl_image_tag chatroom.user2.photo.key, crop: :thumb, gravity: :face, zoom: 0.6, class: "photo" %>
                 <% end %>
                 <div class="online"></div>
               <div class="desc-contact">
@@ -33,7 +33,7 @@
                       <p><%= chatroom.messages.last.updated_at %></p>
                     </div>
                   <% else %>
-                     <p class="new message">new convo</p>
+                    <p class="new message">new convo</p>
                   <% end %>
               </div>
             </div>
