@@ -59,7 +59,8 @@ class EventsController < ApplicationController
         lat: @event.latitude,
         lng: @event.longitude,
         # info window for each marker
-        # info_window: render_to_string(partial: "info_window", locals: { event: @event }),
+        info_window: render_to_string(partial: "info_window", locals: { event: @event }),
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
         image_url: helpers.asset_url("Paper_Plane_blue.png")
       }
     end
