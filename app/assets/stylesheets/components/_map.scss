@@ -1,12 +1,16 @@
 // This is just a basic style from the lecture***
 .mapboxgl-popup {
   max-width: 200px;
-  font-family: "Pacifico", sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
+  border-radius: 16px;
 }
 
 .mapboxgl-popup-content {
+  max-width: 200px;
   text-align: center;
-  font-family: "Pacifico", sans-serif;
+  font-family: 'Libre Franklin', sans-serif;
+  border-radius: 16px;
+  border: #979DAC solid 1px;
 }
 
 .my-event-map {
