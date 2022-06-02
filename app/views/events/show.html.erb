@@ -1,5 +1,5 @@
 <%# cloudinary for images %>
-<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 300, crop: :fill if @event.photo.attached? %>')">
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 1200, crop: :fill if @event.photo.attached? %>')">
 
   <div class="container d-flex flex-column justify-content-center h-100">
     <h1><%= @event.title %></h1>
@@ -23,16 +23,17 @@
 <div class='container'>
 <div class="row position-relative">
   <div class="event-popup-title col-sm-6 mx-2 pt-2 text-center">
-    <h5><%= @event.date.strftime('%A, %m/%d/%Y') %> - <%= @event.starting_time %>h </h5>
+    <h5><%= @event.date.strftime('%A, %m/%d/%Y') %> - <%= @event.starting_time %>h to <%= @event.ending_time %>h </h5>
   </div>
   <div class="big-div col-sm-6 pt-5 bg-white ps-4">
     <div class="d-flex justify-content-end">
+    <%# BUTTONS ICONS %>
       <%= link_to dashboard_path do %>
-        <%= image_tag("back.svg", class: "icon-click-back") %>
+        <%= image_tag("back.svg", class: "icon-click-back mx-2") %>
       <% end %>
       <% if @event.user == current_user %>
         <%= link_to edit_event_path(@event) do %>
-          <%= image_tag("draw.svg", class: "icon-click")  %>
+          <%= image_tag("draw.svg", class: "icon-click mx-2")  %>
         <% end %>
       <% end %>
 
@@ -40,18 +41,19 @@
       It only appers if the user is the one who created the event%>
 
       <% if @event.user == current_user %>
+      <%# NEEDS TO SEND US TO MY EVENTS %>
         <%= link_to event_path(@event),
         data: { confirm: "Are you sure you want to delete this event?" },
         method: :delete do %>
-          <%= image_tag("trash.svg", class: "icon-click-trash") %>
+          <%= image_tag("trash.svg", class: "icon-click-trash mx-2") %>
         <% end %>
       <% end %>
     <%# INFO EVENT  %>
     </div class="info-event position-relative">
-      <h4 class="centered-info pt-5">Location:</h4>
+      <h4 class="centered-info pt-4">Location:</h4>
       <p class="centered-info"><%= @event.location %></p>
       <h4 class="centered-info">Description:</h4>
-      <p class="centered-info"><%= @event.description %></p>
+      <p class="description text-break"><%= @event.description %></p>
       <%# PARTICIPATIONS %>
       <div class="participation-info sticky-bottom ">
          <%# Need to set the box to the right-bottom %>
