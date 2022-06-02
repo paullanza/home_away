@@ -9,20 +9,30 @@ export default class extends Controller {
   }
 
   connect() {
-  //   console.log(this.markersValue) // These two lines were here for testing
-  //   console.log(this.participationsMarkersValue.length)
+  console.log(this.markersValue[0]) // These two lines were here for testing
+    console.log(this.participationsMarkersValue)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
-    this.#addMarkersToMap(this.markersValue)
-    this.#fitMapToMarkers(this.markersValue)
+    // This will populate markers if there are only participations
     if (this.participationsMarkersValue.length > 0) {
       // console.log('CONNECTED') // This was for testing as well
       this.#addMarkersToMap(this.participationsMarkersValue)
       this.#fitMapToMarkers(this.participationsMarkersValue)
+    }
+    // This will populate markers if there are only user created events
+    if (this.markersValue.length > 0) {
+      this.#addMarkersToMap(this.markersValue)
+      this.#fitMapToMarkers(this.markersValue)
+    }
+    // This will populate markers if there are both user created events, and participations
+    if((this.markersValue.length > 0) && (this.participationsMarkersValue.length > 0)){
+      // console.log('CONNECTED') // This was for testing as well
+      this.#addMarkersToMap(this.participationsMarkersValue.concat(this.markersValue))
+      this.#fitMapToMarkers(this.participationsMarkersValue.concat(this.markersValue))
     }
   }
 
@@ -35,6 +45,8 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      // console.log(customMarker); // These two lines were for testing
+      // console.log(customMarker.style.backgroundImage);
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "35px"
       customMarker.style.height = "35px"
