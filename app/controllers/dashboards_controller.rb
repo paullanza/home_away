@@ -26,8 +26,8 @@ class DashboardsController < ApplicationController
         lat: event.latitude,
         lng: event.longitude,
         # info window for each marker
-        info_window: render_to_string(partial: "info_window", locals: { event: event })
-        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+        info_window: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: helpers.asset_url("Paper Plane_8")
       }
     end
     # create new chat if chatroom not found in dashboard.html
