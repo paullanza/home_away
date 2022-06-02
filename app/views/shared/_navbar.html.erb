@@ -23,7 +23,10 @@
           </li>
           <li class="nav-item">
           <!--Paul: link to current user's messages-->
-            <%= link_to "Messages", "#", class: "nav-link" %>
+          <% @chatrooms = Chatroom.where("user1_id = ? or user2_id = ?", current_user, current_user).order(updated_at: :desc).first %>
+            <% if @chatrooms %>
+              <%= link_to "Messages", chatroom_path(@chatrooms), class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
             <!--need to change this image!-->

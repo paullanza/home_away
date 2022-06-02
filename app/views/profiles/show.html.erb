@@ -3,7 +3,9 @@
   <p><%= @user.origin %></p>
   <div class="wrapper-profile-content">
     <div class="card-picture">
+      <% if @user.photo.key %>
         <%= cl_image_tag @user.photo.key, height: 300, crop: :thumb, gravity: :face, zoom: 0.6, class: "card-picture-img" %>
+      <% end %>
     </div>
     <div class="card-expertise">
       <h3>Areas of expertise</h3>
