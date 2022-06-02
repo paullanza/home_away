@@ -1,7 +1,7 @@
 <div>
 <%= simple_form_for @event do |f| %>
   <%# cloudinary for images %>
-  <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path @event.photo.key , height: 1200, crop: :fill if @event.photo.attached? %>')">
+  <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('<%= cl_image_path @event.photo.key , height: 1200, crop: :fill if @event.photo.attached? %>')">
 
     <div class="container d-flex flex-column justify-content-center h-100">
       <h1>Edit event</h1>
