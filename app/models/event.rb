@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :participations, dependent: :destroy
   validates :title, uniqueness: true
   validates :title, :date, :location, :address, :starting_time, :ending_time, :description, :category, :user, presence: true
-  validates :description, length: { minimum: 25 }
+  validates :description, length: { minimum: 5 }
 
   # Cloudinary
   has_one_attached :photo
