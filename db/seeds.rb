@@ -112,6 +112,7 @@ carlos = User.create({
                       first_name: 'Carlos',
                       last_name: 'Ribeiro',
                       biography: 'Growing up in Brazil, I always dreamed of seeing the world. After travelling with my family for many years, we finally decided to move to Montreal. I love soccer and playing board games!'
+
                       })
 
 user = User.create({
