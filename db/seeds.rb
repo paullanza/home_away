@@ -111,7 +111,7 @@ carlos = User.create({
                       residence: 'Montreal',
                       first_name: 'Carlos',
                       last_name: 'Ribeiro',
-                      biography: 'Growing up in Brazil, I always dreamed of seeing the world. After travelling with my family for many years, we finally decided to move to Montreal.'
+                      biography: 'Growing up in Brazil, I always dreamed of seeing the world. After travelling with my family for many years, we finally decided to move to Montreal. I love playing board game'
                       })
 
 user = User.create({
@@ -121,7 +121,7 @@ user = User.create({
                     residence: 'Montreal',
                     first_name: 'Jose',
                     last_name: 'Fontes',
-                    biography: 'Oh man, all the things I could write here! To keep it short my name is Jose. I\'ve been living in Montreal for 4 years now. I work at RBC and I love playing soccer and workning out!'
+                    biography: 'Oh man, all the things I could write here! To keep it short my name is Jose. I\'ve been living in Montreal for 4 years now. I work at RBC and I love playing soccer and working out!'
                     })
 user9 = User.create({
                       email: 'j@j.j',
