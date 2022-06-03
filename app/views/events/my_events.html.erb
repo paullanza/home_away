@@ -9,8 +9,9 @@
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div class="col-8">
-      <div>
-        <h2 class="p-2 pt-0 m-0">Attending <img src="../app/assets/images/Paper_Plane_blue.png" alt=""></h2>
+      <div class="flex-left">
+        <%=image_tag("Paper_Plane_blue.png") %>
+        <h2 class="p-2 pt-0 m-0">Attending</h2>
       </div>
       <%# Paul: This list is for the events the user is attending. %>
         <ul class="attending" id="part-list">
@@ -27,7 +28,10 @@
         <hr style="height:2px; color:black;">
       <div>
         <div class="d-flex justify-content-between align-items-center">
-          <h2 class="p-2 mb-0">Hosting</h2>
+          <div class="flex-left">
+            <%=image_tag("Paper_Plane_grey.png") %>
+            <h2 class="p-2 mb-0">Hosting</h2>
+          </div>
           <%= link_to "Create an Event", new_event_path, class:"btn btn-primary create-event align-middle h-32" %>
         </div>
         <%# Paul: This list is for the events the user has created. %>

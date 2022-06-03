@@ -17,3 +17,13 @@
 .hosting::-webkit-scrollbar {
   display: none;
 }
+
+.flex-left {
+  display: flex;
+  justify-content: flex-start;
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+}
