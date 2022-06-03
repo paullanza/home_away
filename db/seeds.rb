@@ -42,7 +42,7 @@ user = User.create({
                      residence: 'Montreal',
                      first_name: 'Jose',
                      last_name: 'Fontes',
-                     biography: 'Oh man, all the things I could write here! To keep it short my name is Maria.
+                     biography: 'Oh man, all the things I could write here! To keep it short my name is Jose.
                                  I\'ve been living in Montreal for 4 years now. I work at Rbc
                                  and I love anything food related'
                    })
@@ -87,7 +87,7 @@ user5 = User.create({
                       password: 123456,
                       origin: 'Brazil',
                       residence: 'Montreal',
-                      first_name: 'Jaoa',
+                      first_name: 'João',
                       last_name: 'Silva',
                       biography: 'I am a Web dev freelancer. I travel the world while working and I am planing to stay
                                   in montreal for at least 1 year.'
@@ -182,8 +182,8 @@ user14 = User.create({
                       password: 123456,
                       origin: 'Brazil',
                       residence: 'Montreal',
-                      first_name: 'Stinky',
-                      last_name: 'Pete',
+                      first_name: 'Jacinto',
+                      last_name: 'Pinto',
                       biography: 'I am from Brazilia. I work for the Brazil ambassy in Montreal.'
                     })
 user15 = User.create({
@@ -303,7 +303,7 @@ dinner = Event.create({
 
 festival = Event.create({
                           title: "Brazilian Music festival",
-                          date: Date.new(2022, 07, 04),
+                          date: Date.new(2022, 06, 11),
                           location: "Montreal",
                           address: "Parc Jean-Drapeau, Montreal, QC",
                           starting_time: "14:00",
@@ -552,3 +552,4 @@ Participation.create(user: user11, event: tennis)
 Participation.create(user: user, event: board)
 Participation.create(user: user, event: museum)
 Participation.create(user: user16, event: bar_crawl)
+Participation.create(user: carlos, event: festival)
