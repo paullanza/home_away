@@ -205,6 +205,8 @@ user16 = User.create({
                                   You will never find me inside on a sunny day, except if I am at the office. :('
                     })
 
+puts "Opening Photos"
+
 paul = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097628/development/240739733_402519401206811_4856394276528761759_ncrop2_dipzit.jpg')
 stinky_pete = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097640/development/IMG_2172_r6ousl.jpg')
 jose = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097948/development/ben-parker-OhKElOkQ3RE-unsplash_q5thrn.jpg')
@@ -223,6 +225,8 @@ allessandra = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098554
 bruna = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098625/development/stefan-stefancik-QXevDflbl8A-unsplash_xoxdpj.jpg')
 martin = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098719/development/albert-dera-ILip77SbmOE-unsplash_ctsi9m.jpg')
 
+puts "Adding Photos"
+
 user2.photo.attach(io: maria, filename: 'maria.png', content_type: 'image/png')
 user3.photo.attach(io: ana, filename: 'ana.png', content_type: 'image/png')
 user4.photo.attach(io: luis, filename: 'luis.png', content_type: 'image/png')
@@ -240,6 +244,8 @@ user.photo.attach(io: jose, filename: 'jose.png', content_type: 'image/png')
 user16.photo.attach(io: martin, filename: 'martin.png', content_type: 'image/png')
 user14.photo.attach(io: stinky_pete, filename: 'pete.png', content_type: 'image/png')
 carlos.photo.attach(io: paul, filename: 'paul.png', content_type: 'image/png')
+
+puts "creating expertise"
 
 UsersExpertise.create(user: user, expertise: out_sport)
 UsersExpertise.create(user: user, expertise: finance)
@@ -466,6 +472,8 @@ hiking_st_hilaire = Event.create({
                                user: user13
                              })
 
+puts "getting event photos"
+
 dinner_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654181190/development/dinner_at_le_milsa_sakqj3.jpg')
 festival_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654181165/development/brazilian_music_festival_jwrd7o.jpg')
 out_mov_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654181192/development/outdoor_movies_sayd1o.jpg')
@@ -482,6 +490,8 @@ hiking_st_bruno_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v
 club_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654181185/development/night_out_at_the_club_turyga.jpg')
 board_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654181182/development/board_game_night_hfyynd.jpg')
 hiking_st_hilaire_image = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654181196/development/hiking_at_st_hilaire_fqiiop.jpg')
+
+puts "adding event photos"
 
 dinner.photo.attach(io: dinner_image, filename: 'dinner_image.jpg', content_type: 'image/jpg')
 festival.photo.attach(io: festival_image, filename: 'festival_image.jpg', content_type: 'image/jpg')
