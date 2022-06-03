@@ -183,7 +183,7 @@ user14 = User.create({
                       residence: 'Montreal',
                       first_name: 'Jacinto',
                       last_name: 'Pinto',
-                      biography: 'I have my shots, and a passport, I\'m ready to see the world and dazzle everyone! I\'ll be in Montreal for a little while longer if you\'re looking for some magic :)'
+                      biography: 'I have my shots, and a passport, I\'m ready to see the world and dazzle everyone! Let\'s get some cachaca while you\'re here. :).'
                     })
 user15 = User.create({
                       email: 'p@p.p',
@@ -309,7 +309,7 @@ dinner = Event.create({
 
 festival = Event.create({
                           title: "Brazilian Music festival",
-                          date: Date.new(2022, 06, 11),
+                          date: Date.new(2022, 06, 04),
                           location: "Montreal",
                           address: "Parc Jean-Drapeau, Montreal, QC",
                           starting_time: "14:00",
