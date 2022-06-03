@@ -1,7 +1,7 @@
 <div>
 <%= simple_form_for @event do |f| %>
   <%# cloudinary for images %>
-  <div class="event-banner" style="background:linear-gradient(to right, rgba(0, 0, 0, 0.5),#f4f4f4);">
+  <div class="event-banner" style="background:linear-gradient(to right, rgba(0, 0, 0, 0.3),#f4f4f4);">
     <div class="container d-flex flex-column justify-content-center h-100">
       <h1>Create an event <%= f.input :photo, label: false, wrapper_html: {class: "fa-solid fa-camera fa-2xs d-flex justify-content-end pr-5", data: { controller: "photo-input", action: "click->photo-input#chooseFile" } }, input_html: {class: "d-none", data: { photo_input_target: "input" } } %></h1>
 
