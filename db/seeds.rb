@@ -112,6 +112,7 @@ carlos = User.create({
                       first_name: 'Carlos',
                       last_name: 'Ribeiro',
                       biography: 'Growing up in Brazil, I always dreamed of seeing the world. After travelling with my family for many years, we finally decided to move to Montreal. I love soccer and playing board games!'
+
                       })
 
 user = User.create({
@@ -209,7 +210,7 @@ puts "Opening Photos"
 
 paul = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097628/development/240739733_402519401206811_4856394276528761759_ncrop2_dipzit.jpg')
 stinky_pete = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097640/development/IMG_2172_r6ousl.jpg')
-jose = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097948/development/ben-parker-OhKElOkQ3RE-unsplash_q5thrn.jpg')
+jose = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654206087/development/20131109_232300_sceqzp_rkimrr.jpg')
 ana = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654097992/development/aiony-haust-3TLl_97HNJo-unsplash_qijn1f.jpg')
 maria = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098031/development/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash_emtlme.jpg')
 luis = URI.open('https://res.cloudinary.com/hafh/image/upload/v1654098151/development/joseph-gonzalez-iFgRcqHznqg-unsplash_nn5xq4.jpg')
