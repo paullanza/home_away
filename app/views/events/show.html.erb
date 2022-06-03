@@ -56,7 +56,7 @@
       <%# PARTICIPATIONS %>
       <div class="participation-info sticky-bottom ">
          <%# Need to set the box to the right-bottom %>
-        <% if @participations.size > 4 %>
+        <% if @participations.size >= 4 %>
           <p><%= @participations.first.user.first_name %>, <%= @participations.second.user.first_name %> and <%= @participations.size - 2 %> more people are going.</p>
         <% elsif @participations.size == 3 %>
           <p><%= @participations.first.user.first_name %>, <%= @participations.second.user.first_name %> and <%= @participations.third.user.first_name %> are going.</p>
