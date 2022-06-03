@@ -1,9 +1,8 @@
 <%# cloudinary for images %>
-<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key , height: 1200, crop: :fill if @event.photo.attached? %>')">
-
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('<%= cl_image_path @event.photo.key , height: 1200, crop: :fill if @event.photo.attached? %>')">
   <div class="container d-flex flex-column justify-content-center h-100">
-    <h1><%= @event.title %></h1>
-    <h3><%= @event.category.name %></h3>
+    <h1 class="text-shadow"><%= @event.title %></h1>
+    <h3 class="text-shadow"><%= @event.category.name %></h3>
 
     <%# I need two buttons, first appears when open the event to assist to the event, then Not going to cancel %>
     <% unless @event.user == current_user %>

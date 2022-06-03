@@ -111,7 +111,8 @@ carlos = User.create({
                       residence: 'Montreal',
                       first_name: 'Carlos',
                       last_name: 'Ribeiro',
-                      biography: 'Growing up in Brazil, I always dreamed of seeing the world. After travelling with my family for many years, we finally decided to move to Montreal. I love playing board game'
+                      biography: 'Growing up in Brazil, I always dreamed of seeing the world. After travelling with my family for many years, we finally decided to move to Montreal. I love soccer and playing board games!'
+
                       })
 
 user = User.create({
@@ -248,7 +249,7 @@ carlos.photo.attach(io: paul, filename: 'paul.png', content_type: 'image/png')
 puts "creating expertise"
 
 UsersExpertise.create(user: user, expertise: out_sport)
-UsersExpertise.create(user: user, expertise: finance)
+UsersExpertise.create(user: user, expertise: banking)
 UsersExpertise.create(user: user, expertise: fitness)
 UsersExpertise.create(user: user3, expertise: finance)
 UsersExpertise.create(user: user2, expertise: rest)
@@ -256,7 +257,7 @@ UsersExpertise.create(user: user4, expertise: cars)
 UsersExpertise.create(user: user4, expertise: mag)
 UsersExpertise.create(user: user5, expertise: web)
 UsersExpertise.create(user: user6, expertise: night_life)
-UsersExpertise.create(user: user6, expertise: finance)
+UsersExpertise.create(user: user6, expertise: banking)
 UsersExpertise.create(user: user7, expertise: rest)
 UsersExpertise.create(user: user7, expertise: night_life)
 UsersExpertise.create(user: user8, expertise: fitness)
@@ -272,12 +273,13 @@ UsersExpertise.create(user: user12, expertise: out_sport)
 UsersExpertise.create(user: user12, expertise: rest)
 UsersExpertise.create(user: user13, expertise: clothing)
 UsersExpertise.create(user: user14, expertise: mag)
-UsersExpertise.create(user: user14, expertise: finance)
+UsersExpertise.create(user: user14, expertise: banking)
 UsersExpertise.create(user: user15, expertise: web)
 UsersExpertise.create(user: user16, expertise: finance)
 UsersExpertise.create(user: user16, expertise: out_sport)
 
 puts "creating categories"
+
 shoe_exchange = Category.create(name: "Shoe Exchange")
 night_life= Category.create(name: "Night Life")
 cultural = Category.create(name: "Cultural")
@@ -292,6 +294,7 @@ cinema = Category.create(name: "Cinema")
 music = Category.create(name: "Music")
 
 puts "creating events"
+
 dinner = Event.create({
                         title: "Dinner at Le Milsa",
                         date: Date.new(2022, 05, 30),
